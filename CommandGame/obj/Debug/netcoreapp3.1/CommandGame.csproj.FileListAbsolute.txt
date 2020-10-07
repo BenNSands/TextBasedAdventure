@@ -1,0 +1,13 @@
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\bin\Debug\netcoreapp3.1\CommandGame.exe
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\bin\Debug\netcoreapp3.1\CommandGame.deps.json
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\bin\Debug\netcoreapp3.1\CommandGame.runtimeconfig.json
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\bin\Debug\netcoreapp3.1\CommandGame.runtimeconfig.dev.json
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\bin\Debug\netcoreapp3.1\CommandGame.dll
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\bin\Debug\netcoreapp3.1\CommandGame.pdb
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.csprojAssemblyReference.cache
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.AssemblyInfoInputs.cache
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.AssemblyInfo.cs
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.csproj.CoreCompileInputs.cache
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.dll
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.pdb
+C:\Users\mrpok\Desktop\repos\CommandGame\CommandGame\obj\Debug\netcoreapp3.1\CommandGame.genruntimeconfig.cache
