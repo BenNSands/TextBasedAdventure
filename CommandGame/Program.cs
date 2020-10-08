@@ -14,19 +14,21 @@ namespace CommandGame
             Console.WriteLine("HP: " + HP);
             Console.WriteLine("MP: " + MP);
             Console.WriteLine("*You are faced with two door, which do you choose?*");
-            Console.WriteLine("1.Enter to follow the path of the Dragon");
-            Console.WriteLine("2. Enter to follow the path of the Lich Lord");
+            Console.WriteLine("1.Enter to follow the path of the Dragon   *COMBAT*");
+            Console.WriteLine("2. Enter to follow the path of the Lich Lord   *PUZZLES*");
             var firstChoice = Console.ReadLine();
-            if ()
+            if (firstChoice == "1")
             {
+                Console.WriteLine("You enter the room, and are greeted by a Rat with a knife in it's mouth!");
 
-            } else if()
+            } else if (firstChoice == "2")
             {
+                Console.WriteLine("You enter the room, and hear an eerie noise in the walls, there is a hole in the wall leading into a cave.");
 
             }
             else
             {
-
+                Console.WriteLine("*You found a Secret Room! You aren't supposed to be here!");
             }
 
         }
