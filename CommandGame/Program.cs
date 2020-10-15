@@ -8,7 +8,7 @@ namespace CommandGame
         {
             Console.WriteLine("Hello Slayer! What's your name?");
             var playerName = Console.ReadLine();
-            Console.WriteLine("Here is your Sword " + playerName + "! Now get out there and do what you do best!");
+            Console.WriteLine($"Here is your Sword {playerName}! Now get out there and do what you do best!");// want to change the dialouge here (need more instructions)
             
             //declaring hp and mp
             int HP = 100;
@@ -37,11 +37,25 @@ namespace CommandGame
                 Console.WriteLine("");
                 Console.WriteLine("1 - Investigate the noise");
                 Console.WriteLine("2 - Head straight to the exit");
+                var spooopy = Console.ReadLine();
+                switch(spooopy)
+                {
+                    case "1":
+                        Console.WriteLine($"{playerName}...... Why have you abandon meeeee....");
+                        Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
+                        MP = MP - 10;
+                        break;
+                    case "2":
+                        // ;
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
                 Console.WriteLine("You fall into a hidden pit and take 99 DMG");
-                HP = 1;
+                HP = HP - 99;
                 Console.WriteLine($"HP: {HP}");
                 // need to continue with something here
             }
