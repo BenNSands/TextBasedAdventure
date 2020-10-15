@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrpok\\Desktop\\repos\\CommandGame\\CommandGame\\CommandGame.csproj": {}
+    "C:\\Users\\mrpok\\Documents\\repos\\TextAdventure\\CommandGame\\CommandGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrpok\\Desktop\\repos\\CommandGame\\CommandGame\\CommandGame.csproj": {
+    "C:\\Users\\mrpok\\Documents\\repos\\TextAdventure\\CommandGame\\CommandGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrpok\\Desktop\\repos\\CommandGame\\CommandGame\\CommandGame.csproj",
+        "projectUniqueName": "C:\\Users\\mrpok\\Documents\\repos\\TextAdventure\\CommandGame\\CommandGame.csproj",
         "projectName": "CommandGame",
-        "projectPath": "C:\\Users\\mrpok\\Desktop\\repos\\CommandGame\\CommandGame\\CommandGame.csproj",
+        "projectPath": "C:\\Users\\mrpok\\Documents\\repos\\TextAdventure\\CommandGame\\CommandGame.csproj",
         "packagesPath": "C:\\Users\\mrpok\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrpok\\Desktop\\repos\\CommandGame\\CommandGame\\obj\\",
+        "outputPath": "C:\\Users\\mrpok\\Documents\\repos\\TextAdventure\\CommandGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrpok\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
