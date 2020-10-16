@@ -13,8 +13,14 @@ namespace CommandGame
             //declaring hp and mp
             int HP = 100;
             int MP = 50;
+            ConsoleColor forground = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("HP: " + HP);
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("MP: " + MP);
+            Console.ResetColor();
+
+            Console.WriteLine("");
             Console.WriteLine("*You are faced with two doors, which do you choose?*");
 
             // First fork in the road
@@ -28,8 +34,9 @@ namespace CommandGame
                 Console.WriteLine("");
                 Console.WriteLine("1 - Attack the Rat with your Sword ");
                 Console.WriteLine("2 - Punch the Rat");
+                Console.WriteLine("3 - Run for the exit");
                 var ratChoice = Console.ReadLine();
-                //if or switch statement here
+                //insert if or switch statement here
 
             } else if (firstChoice == "2")
             {
@@ -37,16 +44,18 @@ namespace CommandGame
                 Console.WriteLine("");
                 Console.WriteLine("1 - Investigate the noise");
                 Console.WriteLine("2 - Head straight to the exit");
-                var spooopy = Console.ReadLine();
-                switch(spooopy)
+                var spoopy = Console.ReadLine();
+                switch(spoopy)
                 {
                     case "1":
-                        Console.WriteLine($"{playerName}...... Why have you abandon meeeee....");
+                        Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
                         Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
                         MP = MP - 10;
+                        Console.WriteLine($"MP: {MP}");
+                        // Console.WriteLine("exit the room start next trial");
                         break;
                     case "2":
-                        // ;
+                        // Console.WriteLine("exit the room start next trial");
                         break;
                     default:
                         break;
@@ -56,7 +65,9 @@ namespace CommandGame
             {
                 Console.WriteLine("You fall into a hidden pit and take 99 DMG");
                 HP = HP - 99;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"HP: {HP}");
+                Console.ResetColor();
                 // need to continue with something here
             }
 
