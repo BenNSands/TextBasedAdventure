@@ -13,8 +13,12 @@ namespace CommandGame
             //declaring hp and mp
             int HP = 100;
             int MP = 50;
+            ConsoleColor forground = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("HP: " + HP);
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("MP: " + MP);
+            Console.ResetColor();
             Console.WriteLine("*You are faced with two doors, which do you choose?*");
 
             // First fork in the road
@@ -29,7 +33,7 @@ namespace CommandGame
                 Console.WriteLine("1 - Attack the Rat with your Sword ");
                 Console.WriteLine("2 - Punch the Rat");
                 var ratChoice = Console.ReadLine();
-                //if or switch statement here
+                //insert if or switch statement here
 
             } else if (firstChoice == "2")
             {
@@ -41,12 +45,14 @@ namespace CommandGame
                 switch(spooopy)
                 {
                     case "1":
-                        Console.WriteLine($"{playerName}...... Why have you abandon meeeee....");
+                        Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
                         Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
                         MP = MP - 10;
+                        Console.WriteLine($"MP: {MP}");
+                        // Console.WriteLine("exit the room start next trial");
                         break;
                     case "2":
-                        // ;
+                        // Console.WriteLine("exit the room start next trial");
                         break;
                     default:
                         break;
