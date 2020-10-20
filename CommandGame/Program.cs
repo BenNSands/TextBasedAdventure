@@ -37,7 +37,7 @@ namespace CommandGame
                 Console.WriteLine("2 - Punch the Rat");
                 Console.WriteLine("3 - Run for the exit");
                 var ratChoice = Console.ReadLine();
-                    //insert if or switch statement here
+                    //insert switch statement here
                     break;
                 case "2":
             
