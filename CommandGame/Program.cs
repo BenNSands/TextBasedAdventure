@@ -28,18 +28,19 @@ namespace CommandGame
             Console.WriteLine("2 - Enter to follow the path of the Lich Lord   *PUZZLES*");
             var firstChoice = Console.ReadLine();
 
-            if (firstChoice == "1")
+            switch(firstChoice)
             {
+                case "1":
                 Console.WriteLine("You enter the room, and are greeted by a Rat holding a knife!");
                 Console.WriteLine("");
                 Console.WriteLine("1 - Attack the Rat with your Sword ");
                 Console.WriteLine("2 - Punch the Rat");
                 Console.WriteLine("3 - Run for the exit");
                 var ratChoice = Console.ReadLine();
-                //insert if or switch statement here
-
-            } else if (firstChoice == "2")
-            {
+                    //insert if or switch statement here
+                    break;
+                case "2":
+            
                 Console.WriteLine("You enter the room, and hear an eerie noise in the walls, there is a hole in the wall leading into a cave.");
                 Console.WriteLine("");
                 Console.WriteLine("1 - Investigate the noise");
@@ -51,7 +52,11 @@ namespace CommandGame
                         Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
                         Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
                         MP = MP - 10;
-                        Console.WriteLine($"MP: {MP}");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("HP: " + HP);
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("MP: " + MP);
+                        Console.ResetColor();
                         // Console.WriteLine("exit the room start next trial");
                         break;
                     case "2":
@@ -60,15 +65,15 @@ namespace CommandGame
                     default:
                         break;
                 }
-            }
-            else
-            {
+                    break;
+                default:
                 Console.WriteLine("You fall into a hidden pit and take 99 DMG");
                 HP = HP - 99;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"HP: {HP}");
                 Console.ResetColor();
-                // need to continue with something here
+                    // need to continue with something here
+                    break;
             }
 
         }
