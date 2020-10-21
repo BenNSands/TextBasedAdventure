@@ -22,9 +22,9 @@ namespace CommandGame
             Console.ResetColor();
             ConsoleColor forground = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("HP: " + HP);
+            Console.WriteLine($"HP: {HP}");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("MP: " + MP);
+            Console.WriteLine($"MP: {MP}");
             Console.ResetColor();
 
             Console.WriteLine("");
@@ -73,9 +73,9 @@ namespace CommandGame
                                 HP = HP - ratDMG;
                             }
                                 Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("HP: " + HP);
+                                Console.WriteLine($"HP: {HP}");
                                 Console.ForegroundColor = ConsoleColor.Blue;
-                                Console.WriteLine("MP: " + MP);
+                                Console.WriteLine($"MP: {MP}");
                                 Console.ResetColor(); 
                         }
                         else {
@@ -100,9 +100,9 @@ namespace CommandGame
                         Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
                         MP = MP - 10;
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("HP: " + HP);
+                        Console.WriteLine($"HP: {HP}");
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("MP: " + MP);
+                        Console.WriteLine($"MP: {MP}");
                         Console.ResetColor();
                         // Console.WriteLine("exit the room start next trial");
                         break;
