@@ -11,15 +11,20 @@ namespace CommandGame
             var playerName = Console.ReadLine();
             Console.WriteLine($"Here is your Sword {playerName}! Now get out there and do what you do best!");// want to change the dialouge here (need more instructions)
             
-            //declaring hp and mp
+            //declaring hp, mp, and dmg
             int HP = 100;
             int MP = 50;
             int swordDmg = 5;
+            int swordAcc = 85;
             int punchDmg = 1;
+            int punchAcc = 100;
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Yellow; //need to change this up, doesn't change the rat color in later dialouge
             string rat = "Rat";
             Console.ResetColor();
+
+
+            Console.WriteLine("");
             ConsoleColor forground = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"HP: {HP}");
@@ -29,18 +34,21 @@ namespace CommandGame
 
             Console.WriteLine("");
             Console.WriteLine("*You are faced with two doors, which do you choose?*");
+            Console.WriteLine("");
 
             // First fork in the road
             Console.WriteLine("1 - Enter to follow the path of the Dragon   *COMBAT*");
             Console.WriteLine("2 - Enter to follow the path of the Lich Lord   *PUZZLES*");
             var firstChoice = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
 
             switch(firstChoice)
             {
                 case 1:
                 Console.WriteLine($"You enter the room, and are greeted by the {rat} holding a knife!");
                 Console.WriteLine("");
-                    int ratHP = 8;
+
+                    int ratHP = 8;// declaring rat hp and dmg
                     int ratDMG = 4;
                     
                     Console.WriteLine("Combat has been Initiated!!!");
@@ -57,6 +65,7 @@ namespace CommandGame
                             switch (ratCombat)
                             {
                                 case 1:
+                                    //add random number generator to roll to hit
                                     ratHP = ratHP - swordDmg;
                                     break;
                                 case 2:
@@ -98,6 +107,8 @@ namespace CommandGame
                     case 1:
                         Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
                         Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
+                        Console.WriteLine("");
+
                         MP = MP - 10;
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"HP: {HP}");
@@ -115,6 +126,7 @@ namespace CommandGame
                     break;
                 default:
                 Console.WriteLine("You fall into a hidden pit and take 99 DMG");
+                    Console.WriteLine("");
                 HP = HP - 99;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"HP: {HP}");
