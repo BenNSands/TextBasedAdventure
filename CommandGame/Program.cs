@@ -25,12 +25,7 @@ namespace CommandGame
 
 
             Console.WriteLine("");
-            ConsoleColor forground = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"HP: {HP}");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"MP: {MP}");
-            Console.ResetColor();
+            DisplayStats(HP, MP);
 
             Console.WriteLine("");
             Console.WriteLine("*You are faced with two doors, which do you choose?*");
@@ -50,6 +45,7 @@ namespace CommandGame
 
                     int ratHP = 8;// declaring rat hp and dmg
                     int ratDMG = 4;
+                    int ratAcc = 70;
                     
                     Console.WriteLine("Combat has been Initiated!!!");
                         
@@ -66,10 +62,25 @@ namespace CommandGame
                             {
                                 case 1:
                                     //add random number generator to roll to hit
-                                    ratHP = ratHP - swordDmg;
+                                    if (HitRoll(0, 100) < swordAcc)
+                                    {
+                                        ratHP = ratHP - swordDmg;
+                                        Console.WriteLine($"You Hit!!");
+                                        Console.WriteLine($"You dealt {swordDmg} DMG!!");
+                                    }
+                                    else 
+                                    {
+                                        Console.WriteLine("You Missed!!");
+                                    }
+                                   
                                     break;
                                 case 2:
-                                    ratHP = ratHP - punchDmg;
+                                    if (HitRoll(0, 100) < punchAcc)
+                                    {
+                                        ratHP = ratHP - punchDmg;
+                                        Console.WriteLine($"You Hit!!");
+                                        Console.WriteLine($"You dealt {punchDmg} DMG!!");
+                                    }
                                     break;
                                 default:
                                     //not sure what to put here
@@ -77,19 +88,23 @@ namespace CommandGame
                             }
                             if (ratHP > 0)
                             {
-                                Console.WriteLine($"The {rat} swings it's knife!");
-                                Console.WriteLine($"You took {ratDMG} DMG!");
-                                HP = HP - ratDMG;
+                                if (HitRoll(0, 100) < ratAcc)
+                                {
+                                    HP = HP - ratDMG;
+                                    Console.WriteLine($"The {rat} swings it's knife!");
+                                    Console.WriteLine($"You took {ratDMG} DMG!");
+                                } else
+                                {
+                                    Console.WriteLine("The Rat Missed");
+                                }
+                                
                             }
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine($"HP: {HP}");
-                                Console.ForegroundColor = ConsoleColor.Blue;
-                                Console.WriteLine($"MP: {MP}");
-                                Console.ResetColor(); 
+                            DisplayStats(HP, MP);
                         }
                         else {
                             Console.WriteLine("");
                             Console.WriteLine($"The {rat} has died!");
+
                             i = 15;
                         }
                     }//end of combat
@@ -110,13 +125,9 @@ namespace CommandGame
                         Console.WriteLine("");
 
                         MP = MP - 10;
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"HP: {HP}");
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($"MP: {MP}");
-                        Console.ResetColor();
-                        // Console.WriteLine("exit the room start next trial");
-                        break;
+                            DisplayStats(HP, MP);
+                            // Console.WriteLine("exit the room start next trial");
+                            break;
                     case 2:
                         // Console.WriteLine("exit the room start next trial");
                         break;
@@ -128,19 +139,29 @@ namespace CommandGame
                 Console.WriteLine("You fall into a hidden pit and take 99 DMG");
                     Console.WriteLine("");
                 HP = HP - 99;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"HP: {HP}");
-                Console.ResetColor();
+                    DisplayStats(HP, MP);
                     // need to continue with something here
                     break;
             }
 
         }
+
+
         public static int HitRoll(int min, int max)
         {
             var rand = new Random();
             return rand.Next(min, max);
 
-        }
+        }//end of random die roll
+
+
+        public static void DisplayStats(int HP, int MP) 
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"HP: {HP}");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"MP: {MP}");
+            Console.ResetColor();
+        }//end of display stats
     }
 }
