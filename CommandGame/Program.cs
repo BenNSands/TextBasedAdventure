@@ -37,7 +37,7 @@ namespace CommandGame
             Console.WriteLine();
 
             switch(firstChoice)// First Split
-            {
+            {       //start if the combat line
                 case 1:
                     Console.Write($"You enter the room, and are greeted by the ");
                     npcNames(ratName);
@@ -71,7 +71,7 @@ namespace CommandGame
                             switch (ratCombat)
                             {
                                 case 1:
-                                    //add random number generator to roll to hit
+                                    
                                     if (HitRoll(0, 100) < swordAcc)
                                     {
                                         ratHP = ratHP - swordDmg;
@@ -114,7 +114,8 @@ namespace CommandGame
                             }
                             DisplayStats(HP, MP);
                         }
-                        else {
+                        else
+                        {
                             Console.WriteLine();
                             Console.Write("The ");
                             npcNames(ratName);
@@ -123,8 +124,12 @@ namespace CommandGame
                             i = 15;
                         }
                     }//end of combat
-
+                    Console.WriteLine();
                     break;
+
+
+
+                    //start of puzzle line
                 case 2:
             
                 Console.WriteLine("You enter the room, and hear an eerie noise in the walls, there is a hole in the wall leading into a cave.");
@@ -150,6 +155,9 @@ namespace CommandGame
                         break;
                 }
                     break;
+
+
+
                 default:
                 Console.WriteLine("You fall into a hidden pit and take 99 DMG");
                     Console.WriteLine();
@@ -158,12 +166,13 @@ namespace CommandGame
                     // need to continue with something here
                     break;
             }
+            //end of first challenges
 
-        }
+        }//end of main
 
         public static void npcNames(string name)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow; //need to change this up, changes all the text color
+            Console.ForegroundColor = ConsoleColor.Yellow; 
             Console.Write(name);
             Console.ResetColor();
         }
