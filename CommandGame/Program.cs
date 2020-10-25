@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace CommandGame
 {
@@ -7,6 +8,11 @@ namespace CommandGame
     {
         static void Main(string[] args)
         {
+            List<string> inventory = new List<string>();
+            Console.WriteLine("THIS WILL BE THE TITLE SCREEN");
+            Console.WriteLine("press enter to start");
+            Console.ReadLine();
+
             Console.WriteLine("Hello Adventurer! What's your name?");
             var playerName = Console.ReadLine();
             Console.WriteLine($"Here is your Sword {playerName}! Now get out there and find some Treasure!");// want to change the dialouge here (need more instructions)
@@ -21,7 +27,9 @@ namespace CommandGame
 
             //NPC's declared here
             string ratName = "Rat";
-
+            string dragonName = "The Almighty Srakoan";
+            string lichName = "The All-Knowing Thalmuut";
+            string theTrader = "The Trader";
 
             Console.WriteLine();
             DisplayStats(HP, MP);
