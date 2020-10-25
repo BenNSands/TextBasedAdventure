@@ -2,24 +2,44 @@
 using System.Threading;
 using System.Collections.Generic;
 
+//namespace InventorySystem
+//{
+//    public abstract class ObtainableItem
+//    {
+//        public Guid ID { get; set; }
+//        public string Name { get; set; }
+//        public int MaximumStackableQuantity { get; set; }
+
+//        protected ObtainableItem()
+//        {
+//            MaximumStackableQuantity = 1;
+//        }
+//    }
+//}
 namespace CommandGame
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<string> inventory = new List<string>();
             Console.WriteLine("THIS WILL BE THE TITLE SCREEN");
             Console.WriteLine("press enter to start");
-            var startTHeGame = Console.ReadLine();
+            var startTheGame = Console.ReadLine();
 
             Console.WriteLine("Hello Adventurer! What's your name?");
             var playerName = Console.ReadLine();
-            Console.WriteLine($"Here is your Sword {playerName}! Now get out there and find some Treasure!");// want to change the dialouge here (need more instructions)
-            
+            Console.WriteLine();
+            Console.WriteLine("Good, you remeber.");
+            Thread.Sleep(1000);
+            Console.WriteLine($"Here, you dropped your Sword {playerName}! Now get out there and take this Dungeon!");// want to change the dialouge here (need more instructions)
+            Thread.Sleep(1000);
+
+
+
             //declaring hp, mp, and dmg
             int HP = 100;
             int MP = 50;
+            int EXP = 0;
             int swordDmg = 5;
             int swordAcc = 85;
             int punchDmg = 1;
@@ -40,6 +60,7 @@ namespace CommandGame
 
             // First fork in the road
             Console.WriteLine("1 - Enter to follow the path of the Dragon   *COMBAT*");
+            Console.WriteLine();
             Console.WriteLine("2 - Enter to follow the path of the Lich Lord   *PUZZLES*");
             var firstChoice = int.Parse(Console.ReadLine());
             Console.WriteLine();
@@ -50,7 +71,7 @@ namespace CommandGame
                     Console.Write($"You enter the room, and are greeted by the ");
                     npcNames(ratName);
                     Console.Write(" holding a Knife!");
-
+                    Thread.Sleep(800);
                 Console.WriteLine();
                     
                     int ratHP = 8;// declaring rat hp and dmg
@@ -58,13 +79,14 @@ namespace CommandGame
                     int ratAcc = 70;
                     
                     Console.WriteLine("Combat has been Initiated!!!");
-                        
+                    Thread.Sleep(800);
                         for (int i = 0; i < 15; i++) {
                             
                         if (ratHP > 0)
                         {
                             Console.WriteLine($"{15 - i} Rounds left in combat.");
                             Console.WriteLine();
+                            Thread.Sleep(800);
                             Console.Write("1 - Attack the ");
                             npcNames(ratName);
                             Console.WriteLine(" with your Sword");
@@ -82,12 +104,14 @@ namespace CommandGame
                                     
                                     if (HitRoll(0, 100) < swordAcc)
                                     {
+                                        Thread.Sleep(800);
                                         ratHP = ratHP - swordDmg;
                                         Console.WriteLine($"You Hit!!");
                                         Console.WriteLine($"You dealt {swordDmg} DMG!!");
                                     }
                                     else 
                                     {
+                                        Thread.Sleep(800);
                                         Console.WriteLine("You Missed!!");
                                     }
                                    
@@ -95,44 +119,68 @@ namespace CommandGame
                                 case 2:
                                     if (HitRoll(0, 100) < punchAcc)
                                     {
+                                        Thread.Sleep(800);
                                         ratHP = ratHP - punchDmg;
                                         Console.WriteLine($"You Hit!!");
                                         Console.WriteLine($"You dealt {punchDmg} DMG!!");
                                     }
                                     break;
                                 default:
-                                    //not sure what to put here
+                                    Thread.Sleep(800);
+                                    Console.WriteLine("You passed this Turn.");
                                     break;
                             }
                             if (ratHP > 0)
                             {
                                 if (HitRoll(0, 100) < ratAcc)
                                 {
+                                    Thread.Sleep(800);
                                     HP = HP - ratDMG;
                                     Console.Write("The ");
                                     npcNames(ratName);
                                     Console.Write(" swings it's knife!");
+                                    Thread.Sleep(800);
                                     Console.WriteLine($"You took {ratDMG} DMG!");
+
+                                    DisplayStats(HP, MP);
+                                    //if (HP == 0)
+                                    //{
+                                    //    Thread.Sleep(1000);
+                                    //    Console.WriteLine("Game Over");
+                                    //    Console.WriteLine("You Have Died...");
+                                    //}
                                 } 
                                 else
                                 {
+                                    Console.Write("The ");
+                                    npcNames(ratName);
+                                    Console.Write(" swings it's knife!");
+                                    Thread.Sleep(800);
                                     Console.WriteLine("The Rat Missed");
+                                    DisplayStats(HP, MP);
                                 }
                                 
                             }
-                            DisplayStats(HP, MP);
+                            
                         }
                         else
                         {
+                            Thread.Sleep(1000);
                             Console.WriteLine();
                             Console.Write("The ");
                             npcNames(ratName);
                             Console.Write(" has died!");
+                            Thread.Sleep(1000);
+                            Console.WriteLine();
+                            Console.WriteLine($"{playerName} has gained 100 EXP");
+                            EXP += 100; 
 
                             i = 15;
                         }
                     }//end of combat
-                    Console.WriteLine();
+
+                    Thread.Sleep(1500);
+                    Console.WriteLine("");
                     break;
 
 
