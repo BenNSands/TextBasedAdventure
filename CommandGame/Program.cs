@@ -11,7 +11,7 @@ namespace CommandGame
             List<string> inventory = new List<string>();
             Console.WriteLine("THIS WILL BE THE TITLE SCREEN");
             Console.WriteLine("press enter to start");
-            Console.ReadLine();
+            var startTHeGame = Console.ReadLine();
 
             Console.WriteLine("Hello Adventurer! What's your name?");
             var playerName = Console.ReadLine();
