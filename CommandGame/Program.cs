@@ -24,6 +24,7 @@ namespace CommandGame
         {
             var startGame = new StartScreen();
             var allStats = new StatsAndNames();
+            var combatSteps = new Combat();
 
             startGame.OpeningScreen();
 
@@ -31,6 +32,7 @@ namespace CommandGame
 
             Console.SetCursorPosition(0, 8);
             Console.WriteLine("Hello Slayer! What's your name?");
+            Console.SetCursorPosition(7, 2);
             allStats.playerName = Console.ReadLine();
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 8);
@@ -41,11 +43,21 @@ namespace CommandGame
             Console.SetCursorPosition(0, 8);
             Console.WriteLine("Good, you remeber.");
             Thread.Sleep(1000);
-            Console.WriteLine($"Here, you dropped your Sword {allStats.playerName}! Now get out there and take this Dungeon!");// want to change the dialouge here (need more instructions)
-            
+            Console.WriteLine($"Here, you dropped your Sword {allStats.playerName}! Now get out there and take care of those Rats!");// want to change the dialouge here (need more instructions)
 
             allStats.StatDisplay();
+
             Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 8);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write(" ");
+            }
+
+            Console.SetCursorPosition(55, 10);
+            Console.WriteLine("Stage 1");
+            Console.SetCursorPosition(45, 12);
+            Console.WriteLine("-X-----O-----O-----O-----O");
 
 
             //stop
@@ -232,29 +244,5 @@ namespace CommandGame
             //end of first challenges
 
         }//end of main
-
-        public static void npcNames(string name)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow; 
-            Console.Write(name);
-            Console.ResetColor();
-        }
-
-        //public static int HitRoll(int min, int max)
-        //{
-        //    var rand = new Random();
-        //    return rand.Next(min, max);
-
-        //}
-
-
-        //public static void DisplayStats(int HP, int MP) 
-        //{
-        //    Console.ForegroundColor = ConsoleColor.Red;
-        //    Console.WriteLine($"HP: {HP}");
-        //    Console.ForegroundColor = ConsoleColor.Blue;
-        //    Console.WriteLine($"MP: {MP}");
-        //    Console.ResetColor();
-        //}//end of display stats
     }
 }

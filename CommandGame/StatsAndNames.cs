@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Principal;
 using System.Text;
 
 namespace CommandGame
@@ -9,42 +11,67 @@ namespace CommandGame
 
         public string playerName { get; set; }
         //playerStats
-        int charHPCurrent = 100;
+        public int charHPCurrent { get; set; }
+        public int charHPFull { get; }
+        public int charMPCurrent { get; set; }
+        public int charMPFull { get; }
+        public int charEXP { get; set; }
+        public int charLVL { get; set; }
+        public string status { get; set; }
+        public int swordDmg { get; set; }
+        public int swordAcc { get; set; }
+        public int punchDmg { get; set; }
+        public int punchAcc { get; set; }
+        public string ratName { get; set; }
+        public string lichName { get; set; }
+        public string dragonName { get; set; }
+        public string theTrader { get; set; }
+        public StatsAndNames()
+        {
+            charHPCurrent = 100;
+            charHPFull = 100;
+            charMPCurrent = 50;
+            charMPFull = 50;
+            charEXP = 0;
+            charLVL = 1;
+            swordDmg = 5;
+            swordAcc = 85;
+            punchDmg = 1;
+            punchAcc = 100;
+            status = "Healthy";
+            ratName = "Rat";
+            lichName = "The All-Knowing Thalmuut";
+            dragonName = "The Almighty Srakoan"; 
+            theTrader = "The Trader";
 
-        int charHPFull = 100;
-        int charMPCurrent = 50;
-        int charMPFull = 50;
-        int charEXP = 0;
-        int charLVL = 1;
-        int swordDmg = 5;
-        int swordAcc = 85;
-        int punchDmg = 1;
-        int punchAcc = 100;
-        string status = "Healthy";
+        }
 
 
 
-        //NPC Names
-        string ratName = "Rat";
-        string dragonName = "The Almighty Srakoan";
-        string lichName = "The All-Knowing Thalmuut";
-        string theTrader = "The Trader";
+        
 
         public void StatDisplay()
         {
             Console.WriteLine();
             Console.SetCursorPosition(1, 2);
             Console.Write($"Name: {playerName}");
-            Console.SetCursorPosition(15, 2);
+            Console.SetCursorPosition(20, 2);
             Console.Write($"LVL: {charLVL}");
-            Console.SetCursorPosition(30, 2);
+            Console.SetCursorPosition(40, 2);
             Console.Write($"EXP: {charEXP}");
-            Console.SetCursorPosition(45, 2);
-            Console.Write($"HP: {charHPCurrent}/{charHPFull}");
             Console.SetCursorPosition(60, 2);
+            Console.Write($"HP: {charHPCurrent}/{charHPFull}");
+            Console.SetCursorPosition(80, 2);
             Console.Write($"MP: {charMPCurrent}/{charMPFull}");
-            Console.SetCursorPosition(75, 2);
+            Console.SetCursorPosition(100, 2);
             Console.Write($"Status: {status}");
+        }
+
+        public static void npcNames(string name)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(name);
+            Console.ResetColor();
         }
     }
 }
