@@ -22,206 +22,213 @@ namespace CommandGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("THIS WILL BE THE TITLE SCREEN");
-            Console.WriteLine("press enter to start");
-            var startTheGame = Console.ReadLine();
+            var startGame = new StartScreen();
+            var allStats = new StatsAndNames();
 
-            Console.WriteLine("Hello Adventurer! What's your name?");
-            var playerName = Console.ReadLine();
-            Console.WriteLine();
+            startGame.OpeningScreen();
+
+            allStats.StatDisplay();
+
+            Console.SetCursorPosition(0, 8);
+            Console.WriteLine("Hello Slayer! What's your name?");
+            allStats.playerName = Console.ReadLine();
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 8);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write(" ");
+            }
+            Console.SetCursorPosition(0, 8);
             Console.WriteLine("Good, you remeber.");
             Thread.Sleep(1000);
-            Console.WriteLine($"Here, you dropped your Sword {playerName}! Now get out there and take this Dungeon!");// want to change the dialouge here (need more instructions)
+            Console.WriteLine($"Here, you dropped your Sword {allStats.playerName}! Now get out there and take this Dungeon!");// want to change the dialouge here (need more instructions)
+            
+
+            allStats.StatDisplay();
             Thread.Sleep(1000);
 
 
+            //stop
+            Console.ReadLine();
 
-            //declaring hp, mp, and dmg
-            int HP = 100;
-            int MP = 50;
-            int EXP = 0;
-            int swordDmg = 5;
-            int swordAcc = 85;
-            int punchDmg = 1;
-            int punchAcc = 100;
-
-            //NPC's declared here
-            string ratName = "Rat";
-            string dragonName = "The Almighty Srakoan";
-            string lichName = "The All-Knowing Thalmuut";
-            string theTrader = "The Trader";
-
-            Console.WriteLine();
-            DisplayStats(HP, MP);
-
-            Console.WriteLine();
-            Console.WriteLine("*You are faced with two doors, which do you choose?*");
-            Console.WriteLine();
-
-            // First fork in the road
-            Console.WriteLine("1 - Enter to follow the path of the Dragon   *COMBAT*");
-            Console.WriteLine();
-            Console.WriteLine("2 - Enter to follow the path of the Lich Lord   *PUZZLES*");
-            var firstChoice = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-
-            switch(firstChoice)// First Split
-            {       //start if the combat line
-                case 1:
-                    Console.Write($"You enter the room, and are greeted by the ");
-                    npcNames(ratName);
-                    Console.Write(" holding a Knife!");
-                    Thread.Sleep(800);
-                Console.WriteLine();
-                    
-                    int ratHP = 8;// declaring rat hp and dmg
-                    int ratDMG = 4;
-                    int ratAcc = 70;
-                    
-                    Console.WriteLine("Combat has been Initiated!!!");
-                    Thread.Sleep(800);
-                        for (int i = 0; i < 15; i++) {
-                            
-                        if (ratHP > 0)
-                        {
-                            Console.WriteLine($"{15 - i} Rounds left in combat.");
-                            Console.WriteLine();
-                            Thread.Sleep(800);
-                            Console.Write("1 - Attack the ");
-                            npcNames(ratName);
-                            Console.WriteLine(" with your Sword");
-
-                            Console.WriteLine();
-
-                            Console.Write($"2 - Punch the ");
-                            npcNames(ratName);
-
-                            Console.WriteLine();
-                            var ratCombat = int.Parse(Console.ReadLine());
-                            switch (ratCombat)
-                            {
-                                case 1:
-                                    
-                                    if (HitRoll(0, 100) < swordAcc)
-                                    {
-                                        Thread.Sleep(800);
-                                        ratHP = ratHP - swordDmg;
-                                        Console.WriteLine($"You Hit!!");
-                                        Console.WriteLine($"You dealt {swordDmg} DMG!!");
-                                    }
-                                    else 
-                                    {
-                                        Thread.Sleep(800);
-                                        Console.WriteLine("You Missed!!");
-                                    }
-                                   
-                                    break;
-                                case 2:
-                                    if (HitRoll(0, 100) < punchAcc)
-                                    {
-                                        Thread.Sleep(800);
-                                        ratHP = ratHP - punchDmg;
-                                        Console.WriteLine($"You Hit!!");
-                                        Console.WriteLine($"You dealt {punchDmg} DMG!!");
-                                    }
-                                    break;
-                                default:
-                                    Thread.Sleep(800);
-                                    Console.WriteLine("You passed this Turn.");
-                                    break;
-                            }
-                            if (ratHP > 0)
-                            {
-                                if (HitRoll(0, 100) < ratAcc)
-                                {
-                                    Thread.Sleep(800);
-                                    HP = HP - ratDMG;
-                                    Console.Write("The ");
-                                    npcNames(ratName);
-                                    Console.Write(" swings it's knife!");
-                                    Thread.Sleep(800);
-                                    Console.WriteLine($"You took {ratDMG} DMG!");
-
-                                    DisplayStats(HP, MP);
-                                    //if (HP == 0)
-                                    //{
-                                    //    Thread.Sleep(1000);
-                                    //    Console.WriteLine("Game Over");
-                                    //    Console.WriteLine("You Have Died...");
-                                    //}
-                                } 
-                                else
-                                {
-                                    Console.Write("The ");
-                                    npcNames(ratName);
-                                    Console.Write(" swings it's knife!");
-                                    Thread.Sleep(800);
-                                    Console.WriteLine("The Rat Missed");
-                                    DisplayStats(HP, MP);
-                                }
-                                
-                            }
-                            
-                        }
-                        else
-                        {
-                            Thread.Sleep(1000);
-                            Console.WriteLine();
-                            Console.Write("The ");
-                            npcNames(ratName);
-                            Console.Write(" has died!");
-                            Thread.Sleep(1000);
-                            Console.WriteLine();
-                            Console.WriteLine($"{playerName} has gained 100 EXP");
-                            EXP += 100; 
-
-                            i = 15;
-                        }
-                    }//end of combat
-
-                    Thread.Sleep(1500);
-                    Console.WriteLine("");
-                    break;
-
-
-
-                    //start of puzzle line
-                case 2:
             
-                Console.WriteLine("You enter the room, and hear an eerie noise in the walls, there is a hole in the wall leading into a cave.");
-                Console.WriteLine();
-                Console.WriteLine("1 - Investigate the noise");
-                Console.WriteLine("2 - Head straight to the exit");
-                var spoopy = int.Parse(Console.ReadLine());
-                switch(spoopy)
-                {
-                    case 1:
-                        Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
-                        Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
-                        Console.WriteLine();
 
-                        MP = MP - 10;
-                            DisplayStats(HP, MP);
-                            // Console.WriteLine("exit the room start next trial");
-                            break;
-                    case 2:
-                        // Console.WriteLine("exit the room start next trial");
-                        break;
-                    default:
-                        break;
-                }
-                    break;
+            
+
+            //Console.WriteLine();
+       
+            //var ans = 0;
+            //do
+            //{
+            //    Console.WriteLine();
+            //    Console.WriteLine("*You are faced with two doors, which do you choose?*");
+            //    Console.WriteLine();
+
+            //    // First fork in the road
+            //    Console.WriteLine("1 - Enter to follow the path of the Dragon   *COMBAT*");
+            //    Console.WriteLine();
+            //    Console.WriteLine("2 - Enter to follow the path of the Lich Lord   *PUZZLES*");
+            //    var firstChoice = int.Parse(Console.ReadLine());
+            //    Console.WriteLine();
+            //    if(firstChoice == 1 || firstChoice == 2)
+            //    {
+            //        ans = 1;
+            //    }
+            //} while (ans == 0);
+
+            //switch(firstChoice)// First Split
+            //{       //start if the combat line
+            //    case 1:
+            //        Console.Write($"You enter the room, and are greeted by the ");
+            //        Console.WriteLine();
+            //        //npcNames(ratName);
+            //        Console.Write(" holding a Knife!");
+            //        Thread.Sleep(800);
+            //    Console.WriteLine();
+
+            //        int ratHP = 8;// declaring rat hp and dmg
+            //        int ratDMG = 4;
+            //        int ratAcc = 70;
+
+            //        Console.WriteLine("Combat has been Initiated!!!");
+            //        Thread.Sleep(800);
+            //            for (int i = 0; i < 15; i++) {
+
+            //            if (ratHP > 0)
+            //            {
+            //                Console.WriteLine($"{15 - i} Rounds left in combat.");
+            //                Console.WriteLine();
+            //                Thread.Sleep(800);
+            //                Console.Write("1 - Attack the ");
+            //                npcNames(ratName);
+            //                Console.WriteLine(" with your Sword");
+
+            //                Console.WriteLine();
+
+            //                Console.Write($"2 - Punch the ");
+            //                npcNames(ratName);
+
+            //                Console.WriteLine();
+            //                var ratCombat = int.Parse(Console.ReadLine());
+            //                switch (ratCombat)
+            //                {
+            //                    case 1:
+
+            //                        if (HitRoll(0, 100) < swordAcc)
+            //                        {
+            //                            Thread.Sleep(800);
+            //                            ratHP = ratHP - swordDmg;
+            //                            Console.WriteLine($"You Hit!!");
+            //                            Console.WriteLine($"You dealt {swordDmg} DMG!!");
+            //                        }
+            //                        else 
+            //                        {
+            //                            Thread.Sleep(800);
+            //                            Console.WriteLine("You Missed!!");
+            //                        }
+
+            //                        break;
+            //                    case 2:
+            //                        if (HitRoll(0, 100) < punchAcc)
+            //                        {
+            //                            Thread.Sleep(800);
+            //                            ratHP = ratHP - punchDmg;
+            //                            Console.WriteLine($"You Hit!!");
+            //                            Console.WriteLine($"You dealt {punchDmg} DMG!!");
+            //                        }
+            //                        break;
+            //                    default:
+            //                        Thread.Sleep(800);
+            //                        Console.WriteLine("You passed this Turn.");
+            //                        break;
+            //                }
+            //                if (ratHP > 0)
+            //                {
+            //                    if (HitRoll(0, 100) < ratAcc)
+            //                    {
+            //                        Thread.Sleep(800);
+            //                        HP = HP - ratDMG;
+            //                        Console.Write("The ");
+            //                        npcNames(ratName);
+            //                        Console.Write(" swings it's knife!");
+            //                        Thread.Sleep(800);
+            //                        Console.WriteLine($"You took {ratDMG} DMG!");
+
+            //                        DisplayStats(HP, MP);
+
+            //                    } 
+            //                    else
+            //                    {
+            //                        Console.Write("The ");
+            //                        npcNames(ratName);
+            //                        Console.Write(" swings it's knife!");
+            //                        Thread.Sleep(800);
+            //                        Console.WriteLine("The Rat Missed");
+            //                        DisplayStats(HP, MP);
+            //                    }
+
+            //                }
+
+            //            }
+            //            else
+            //            {
+            //                Thread.Sleep(1000);
+            //                Console.WriteLine();
+            //                Console.Write("The ");
+            //                npcNames(ratName);
+            //                Console.Write(" has died!");
+            //                Thread.Sleep(1000);
+            //                Console.WriteLine();
+            //                Console.WriteLine($"{playerName} has gained 100 EXP");
+            //                EXP += 100; 
+
+            //                i = 15;
+            //            }
+            //        }//end of combat
+
+            //        Thread.Sleep(1500);
+            //        Console.WriteLine("");
+            //        break;
 
 
 
-                default:
-                Console.WriteLine("You fall into a hidden pit and take 99 DMG");
-                    Console.WriteLine();
-                HP = HP - 99;
-                    DisplayStats(HP, MP);
-                    // need to continue with something here
-                    break;
-            }
+            //        //start of puzzle line
+            //    case 2:
+
+            //    Console.WriteLine("You enter the room, and hear an eerie noise in the walls, there is a hole in the wall leading into a cave.");
+            //    Console.WriteLine();
+            //    Console.WriteLine("1 - Investigate the noise");
+            //    Console.WriteLine("2 - Head straight to the exit");
+            //    var spoopy = int.Parse(Console.ReadLine());
+            //    switch(spoopy)
+            //    {
+            //        case 1:
+            //            Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
+            //            Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
+            //            Console.WriteLine();
+
+            //            MP = MP - 10;
+            //               // DisplayStats(HP, MP);
+            //                // Console.WriteLine("exit the room start next trial");
+            //                break;
+            //        case 2:
+            //            // Console.WriteLine("exit the room start next trial");
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //        break;
+
+
+
+            //    default:
+            //    Console.WriteLine("You fall into a hidden pit and take 99 DMG");
+            //        Console.WriteLine();
+            //    HP = HP - 99;
+            //        //DisplayStats(HP, MP);
+            //        // need to continue with something here
+            //        break;
+            //}
             //end of first challenges
 
         }//end of main
@@ -233,21 +240,21 @@ namespace CommandGame
             Console.ResetColor();
         }
 
-        public static int HitRoll(int min, int max)
-        {
-            var rand = new Random();
-            return rand.Next(min, max);
+        //public static int HitRoll(int min, int max)
+        //{
+        //    var rand = new Random();
+        //    return rand.Next(min, max);
 
-        }//end of random die roll
+        //}
 
 
-        public static void DisplayStats(int HP, int MP) 
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"HP: {HP}");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"MP: {MP}");
-            Console.ResetColor();
-        }//end of display stats
+        //public static void DisplayStats(int HP, int MP) 
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Red;
+        //    Console.WriteLine($"HP: {HP}");
+        //    Console.ForegroundColor = ConsoleColor.Blue;
+        //    Console.WriteLine($"MP: {MP}");
+        //    Console.ResetColor();
+        //}//end of display stats
     }
 }
