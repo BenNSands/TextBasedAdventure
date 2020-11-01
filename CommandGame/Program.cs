@@ -57,7 +57,15 @@ namespace CommandGame
             Console.SetCursorPosition(55, 10);
             Console.WriteLine("Stage 1");
             Console.SetCursorPosition(45, 12);
-            Console.WriteLine("-X-----O-----O-----O-----O");
+            Console.WriteLine("X-----O-----O-----O-----O");
+            Thread.Sleep(1200);
+            Console.SetCursorPosition(55, 10);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("  ");
+            }
+
+
 
 
             //stop
