@@ -2,20 +2,7 @@
 using System.Threading;
 using System.Collections.Generic;
 
-//namespace InventorySystem
-//{
-//    public abstract class ObtainableItem
-//    {
-//        public Guid ID { get; set; }
-//        public string Name { get; set; }
-//        public int MaximumStackableQuantity { get; set; }
 
-//        protected ObtainableItem()
-//        {
-//            MaximumStackableQuantity = 1;
-//        }
-//    }
-//}
 namespace CommandGame
 {
     class Program
@@ -30,39 +17,54 @@ namespace CommandGame
 
             allStats.StatDisplay();
 
-            Console.SetCursorPosition(0, 8);
+            Console.SetCursorPosition(45, 8);
             Console.WriteLine("Hello Slayer! What's your name?");
             Console.SetCursorPosition(7, 2);
             allStats.playerName = Console.ReadLine();
             Thread.Sleep(1000);
-            Console.SetCursorPosition(0, 8);
+            Console.SetCursorPosition(45, 8);
             for (int i = 0; i < 200; i++)
             {
                 Console.Write(" ");
             }
-            Console.SetCursorPosition(0, 8);
+            Console.SetCursorPosition(48, 8);
             Console.WriteLine("Good, you remeber.");
             Thread.Sleep(1000);
+            Console.SetCursorPosition(25, 10);
             Console.WriteLine($"Here, you dropped your Sword {allStats.playerName}! Now get out there and take care of those Rats!");// want to change the dialouge here (need more instructions)
 
             allStats.StatDisplay();
 
-            Thread.Sleep(1000);
-            Console.SetCursorPosition(0, 8);
+            Thread.Sleep(2000);
+            Console.SetCursorPosition(48, 8);
             for (int i = 0; i < 200; i++)
             {
-                Console.Write(" ");
+                Console.Write("    ");
             }
 
-            Console.SetCursorPosition(55, 10);
+            Console.SetCursorPosition(54, 10);
             Console.WriteLine("Stage 1");
             Console.SetCursorPosition(45, 12);
             Console.WriteLine("X-----O-----O-----O-----O");
-            Thread.Sleep(1200);
-            Console.SetCursorPosition(55, 10);
+            Thread.Sleep(2000);
+            Console.SetCursorPosition(54, 10);
             for (int i = 0; i < 200; i++)
             {
                 Console.Write("  ");
+            }
+
+
+            Console.SetCursorPosition(48, 12);
+            Console.Write("You've Encountered a ");
+            Console.Write(allStats.ratName);
+            Thread.Sleep(500);
+            Console.SetCursorPosition(51, 15);
+            Console.WriteLine("Combat Has Initiated!");
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(48, 12);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("   ");
             }
 
 
@@ -75,26 +77,7 @@ namespace CommandGame
 
             
 
-            //Console.WriteLine();
        
-            //var ans = 0;
-            //do
-            //{
-            //    Console.WriteLine();
-            //    Console.WriteLine("*You are faced with two doors, which do you choose?*");
-            //    Console.WriteLine();
-
-            //    // First fork in the road
-            //    Console.WriteLine("1 - Enter to follow the path of the Dragon   *COMBAT*");
-            //    Console.WriteLine();
-            //    Console.WriteLine("2 - Enter to follow the path of the Lich Lord   *PUZZLES*");
-            //    var firstChoice = int.Parse(Console.ReadLine());
-            //    Console.WriteLine();
-            //    if(firstChoice == 1 || firstChoice == 2)
-            //    {
-            //        ans = 1;
-            //    }
-            //} while (ans == 0);
 
             //switch(firstChoice)// First Split
             //{       //start if the combat line

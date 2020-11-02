@@ -26,6 +26,9 @@ namespace CommandGame
         public string lichName { get; set; }
         public string dragonName { get; set; }
         public string theTrader { get; set; }
+        public int rat1HP { get; set; }
+        public int rat1Dmg { get; set; }
+        public int rat1Acc { get; set; }
         public StatsAndNames()
         {
             charHPCurrent = 100;
@@ -43,7 +46,9 @@ namespace CommandGame
             lichName = "The All-Knowing Thalmuut";
             dragonName = "The Almighty Srakoan"; 
             theTrader = "The Trader";
-
+            rat1HP = 10;
+            rat1Dmg = 4;
+            rat1Acc = 70;
         }
 
 
