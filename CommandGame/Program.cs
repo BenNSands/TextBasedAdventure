@@ -11,7 +11,7 @@ namespace CommandGame
         {
             var startGame = new StartScreen();
             var allStats = new StatsAndNames();
-            var combatSteps = new Combat();
+            var combat = new Combat();
 
             startGame.OpeningScreen();
 
@@ -56,7 +56,7 @@ namespace CommandGame
 
             Console.SetCursorPosition(48, 12);
             Console.Write("You've Encountered a ");
-            Console.Write(allStats.ratName);
+            Console.Write(combat.rat1Name);
             Thread.Sleep(500);
             Console.SetCursorPosition(51, 15);
             Console.WriteLine("Combat Has Initiated!");
@@ -68,7 +68,109 @@ namespace CommandGame
             }
 
 
+            var fightStatus = 0;
+            do
+            {
+                if (combat.rat1HP > 0)
+                {
 
+                }
+            } while (fightStatus != 1);
+
+            //            for (int i = 0; i < 15; i++)
+            //{
+
+            //    if (combat.rat1HP > 0)
+            //    {
+            //        Console.WriteLine($"{15 - i} Rounds left in combat.");
+            //        Console.WriteLine();
+            //        Thread.Sleep(800);
+            //        Console.Write("1 - Attack the ");
+            //        npcNames(ratName);
+            //        Console.WriteLine(" with your Sword");
+
+            //        Console.WriteLine();
+
+            //        Console.Write($"2 - Punch the ");
+            //        npcNames(ratName);
+
+            //        Console.WriteLine();
+            //        var ratCombat = int.Parse(Console.ReadLine());
+            //        switch (ratCombat)
+            //        {
+            //            case 1:
+
+            //                if (HitRoll(0, 100) < swordAcc)
+            //                {
+            //                    Thread.Sleep(800);
+            //                    ratHP = ratHP - swordDmg;
+            //                    Console.WriteLine($"You Hit!!");
+            //                    Console.WriteLine($"You dealt {swordDmg} DMG!!");
+            //                }
+            //                else
+            //                {
+            //                    Thread.Sleep(800);
+            //                    Console.WriteLine("You Missed!!");
+            //                }
+
+            //                break;
+            //            case 2:
+            //                if (HitRoll(0, 100) < punchAcc)
+            //                {
+            //                    Thread.Sleep(800);
+            //                    ratHP = ratHP - punchDmg;
+            //                    Console.WriteLine($"You Hit!!");
+            //                    Console.WriteLine($"You dealt {punchDmg} DMG!!");
+            //                }
+            //                break;
+            //            default:
+            //                Thread.Sleep(800);
+            //                Console.WriteLine("You passed this Turn.");
+            //                break;
+            //        }
+            //        if (ratHP > 0)
+            //        {
+            //            if (HitRoll(0, 100) < ratAcc)
+            //            {
+            //                Thread.Sleep(800);
+            //                HP = HP - ratDMG;
+            //                Console.Write("The ");
+            //                npcNames(ratName);
+            //                Console.Write(" swings it's knife!");
+            //                Thread.Sleep(800);
+            //                Console.WriteLine($"You took {ratDMG} DMG!");
+
+            //                DisplayStats(HP, MP);
+
+            //            }
+            //            else
+            //            {
+            //                Console.Write("The ");
+            //                npcNames(ratName);
+            //                Console.Write(" swings it's knife!");
+            //                Thread.Sleep(800);
+            //                Console.WriteLine("The Rat Missed");
+            //                DisplayStats(HP, MP);
+            //            }
+
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        Thread.Sleep(1000);
+            //        Console.WriteLine();
+            //        Console.Write("The ");
+            //        npcNames(ratName);
+            //        Console.Write(" has died!");
+            //        Thread.Sleep(1000);
+            //        Console.WriteLine();
+            //        Console.WriteLine($"{playerName} has gained 100 EXP");
+            //        EXP += 100;
+
+            //        i = 15;
+            //    }
+            //}//end of combat
 
             //stop
             Console.ReadLine();
@@ -79,160 +181,12 @@ namespace CommandGame
 
        
 
-            //switch(firstChoice)// First Split
-            //{       //start if the combat line
-            //    case 1:
-            //        Console.Write($"You enter the room, and are greeted by the ");
-            //        Console.WriteLine();
-            //        //npcNames(ratName);
-            //        Console.Write(" holding a Knife!");
-            //        Thread.Sleep(800);
-            //    Console.WriteLine();
-
-            //        int ratHP = 8;// declaring rat hp and dmg
-            //        int ratDMG = 4;
-            //        int ratAcc = 70;
-
-            //        Console.WriteLine("Combat has been Initiated!!!");
-            //        Thread.Sleep(800);
-            //            for (int i = 0; i < 15; i++) {
-
-            //            if (ratHP > 0)
-            //            {
-            //                Console.WriteLine($"{15 - i} Rounds left in combat.");
-            //                Console.WriteLine();
-            //                Thread.Sleep(800);
-            //                Console.Write("1 - Attack the ");
-            //                npcNames(ratName);
-            //                Console.WriteLine(" with your Sword");
-
-            //                Console.WriteLine();
-
-            //                Console.Write($"2 - Punch the ");
-            //                npcNames(ratName);
-
-            //                Console.WriteLine();
-            //                var ratCombat = int.Parse(Console.ReadLine());
-            //                switch (ratCombat)
-            //                {
-            //                    case 1:
-
-            //                        if (HitRoll(0, 100) < swordAcc)
-            //                        {
-            //                            Thread.Sleep(800);
-            //                            ratHP = ratHP - swordDmg;
-            //                            Console.WriteLine($"You Hit!!");
-            //                            Console.WriteLine($"You dealt {swordDmg} DMG!!");
-            //                        }
-            //                        else 
-            //                        {
-            //                            Thread.Sleep(800);
-            //                            Console.WriteLine("You Missed!!");
-            //                        }
-
-            //                        break;
-            //                    case 2:
-            //                        if (HitRoll(0, 100) < punchAcc)
-            //                        {
-            //                            Thread.Sleep(800);
-            //                            ratHP = ratHP - punchDmg;
-            //                            Console.WriteLine($"You Hit!!");
-            //                            Console.WriteLine($"You dealt {punchDmg} DMG!!");
-            //                        }
-            //                        break;
-            //                    default:
-            //                        Thread.Sleep(800);
-            //                        Console.WriteLine("You passed this Turn.");
-            //                        break;
-            //                }
-            //                if (ratHP > 0)
-            //                {
-            //                    if (HitRoll(0, 100) < ratAcc)
-            //                    {
-            //                        Thread.Sleep(800);
-            //                        HP = HP - ratDMG;
-            //                        Console.Write("The ");
-            //                        npcNames(ratName);
-            //                        Console.Write(" swings it's knife!");
-            //                        Thread.Sleep(800);
-            //                        Console.WriteLine($"You took {ratDMG} DMG!");
-
-            //                        DisplayStats(HP, MP);
-
-            //                    } 
-            //                    else
-            //                    {
-            //                        Console.Write("The ");
-            //                        npcNames(ratName);
-            //                        Console.Write(" swings it's knife!");
-            //                        Thread.Sleep(800);
-            //                        Console.WriteLine("The Rat Missed");
-            //                        DisplayStats(HP, MP);
-            //                    }
-
-            //                }
-
-            //            }
-            //            else
-            //            {
-            //                Thread.Sleep(1000);
-            //                Console.WriteLine();
-            //                Console.Write("The ");
-            //                npcNames(ratName);
-            //                Console.Write(" has died!");
-            //                Thread.Sleep(1000);
-            //                Console.WriteLine();
-            //                Console.WriteLine($"{playerName} has gained 100 EXP");
-            //                EXP += 100; 
-
-            //                i = 15;
-            //            }
-            //        }//end of combat
-
-            //        Thread.Sleep(1500);
-            //        Console.WriteLine("");
-            //        break;
+            
 
 
 
-            //        //start of puzzle line
-            //    case 2:
 
-            //    Console.WriteLine("You enter the room, and hear an eerie noise in the walls, there is a hole in the wall leading into a cave.");
-            //    Console.WriteLine();
-            //    Console.WriteLine("1 - Investigate the noise");
-            //    Console.WriteLine("2 - Head straight to the exit");
-            //    var spoopy = int.Parse(Console.ReadLine());
-            //    switch(spoopy)
-            //    {
-            //        case 1:
-            //            Console.WriteLine($"{playerName}...... Why have you abandoned meeeee?....");
-            //            Console.WriteLine("You feel as if your soul is slowly being tugged out of you body *You lose 10 MP*");
-            //            Console.WriteLine();
-
-            //            MP = MP - 10;
-            //               // DisplayStats(HP, MP);
-            //                // Console.WriteLine("exit the room start next trial");
-            //                break;
-            //        case 2:
-            //            // Console.WriteLine("exit the room start next trial");
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //        break;
-
-
-
-            //    default:
-            //    Console.WriteLine("You fall into a hidden pit and take 99 DMG");
-            //        Console.WriteLine();
-            //    HP = HP - 99;
-            //        //DisplayStats(HP, MP);
-            //        // need to continue with something here
-            //        break;
-            //}
-            //end of first challenges
+  
 
         }//end of main
     }
