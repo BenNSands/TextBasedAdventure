@@ -22,13 +22,7 @@ namespace CommandGame
         public int swordAcc { get; set; }
         public int punchDmg { get; set; }
         public int punchAcc { get; set; }
-        public string ratName { get; set; }
-        public string lichName { get; set; }
-        public string dragonName { get; set; }
-        public string theTrader { get; set; }
-        public int rat1HP { get; set; }
-        public int rat1Dmg { get; set; }
-        public int rat1Acc { get; set; }
+       
         public StatsAndNames()
         {
             charHPCurrent = 100;
@@ -42,13 +36,10 @@ namespace CommandGame
             punchDmg = 1;
             punchAcc = 100;
             status = "Healthy";
-            ratName = "Rat";
-            lichName = "The All-Knowing Thalmuut";
-            dragonName = "The Almighty Srakoan"; 
-            theTrader = "The Trader";
-            rat1HP = 10;
-            rat1Dmg = 4;
-            rat1Acc = 70;
+           
+           
+            
+
         }
 
 

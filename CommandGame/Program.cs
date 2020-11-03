@@ -55,9 +55,8 @@ namespace CommandGame
 
 
             Console.SetCursorPosition(48, 12);
-            Console.Write("You've Encountered a ");
-            Console.Write(combat.rat1Name);
-            Thread.Sleep(500);
+            Console.WriteLine($"You've Encountered a {combat.rat1Name}!");
+            Thread.Sleep(800);
             Console.SetCursorPosition(51, 15);
             Console.WriteLine("Combat Has Initiated!");
             Thread.Sleep(1000);
@@ -67,127 +66,111 @@ namespace CommandGame
                 Console.Write("   ");
             }
 
-
+            //need to change cursor position below here and line erasure
             var fightStatus = 0;
             do
             {
-                if (combat.rat1HP > 0)
+                while (combat.rat1HP > 0)
                 {
+                    Console.SetCursorPosition(50, 20);
+                    Console.WriteLine("1 - Sword");
+                    Console.SetCursorPosition(50, 22);
+                    Console.WriteLine("2 - Punch");
+                    Console.SetCursorPosition(50, 24);
+                    var atkChoice = int.Parse(Console.ReadLine());
 
+                    switch (atkChoice)
+                    {
+                        case 1:
+                            if (combat.HitRoll(0, 100) < allStats.swordAcc)
+                            {
+                                Thread.Sleep(800);
+                                combat.rat1HP = combat.rat1HP - allStats.swordDmg;
+                                Console.WriteLine($"You Hit!!");
+                                Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                            }
+                            else
+                            {
+                                Thread.Sleep(800);
+                                Console.WriteLine("You Missed!!");
+                            }
+                            break;
+
+                        case 2:
+                            if (combat.HitRoll(0, 100) < allStats.punchAcc)
+                            {
+                                Thread.Sleep(800);
+                                combat.rat1HP = combat.rat1HP - allStats.punchDmg;
+                                Console.WriteLine($"You Hit!!");
+                                Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                            }
+                            else
+                            {
+                                Thread.Sleep(800);
+                                Console.WriteLine("You Missed!!");
+                            }
+                            break;
+
+                        default:
+                            Console.WriteLine("you looked funny at the rat and it just fuckin' died");
+                            combat.rat1HP -= combat.rat1HP;
+                            break;
+                    }
+
+
+                    if (combat.rat1HP > 0)
+                    {
+                        if (combat.HitRoll(0, 100) < combat.rat1Acc)
+                        {
+                            Thread.Sleep(800);
+                            allStats.charHPCurrent -= combat.rat1Dmg;
+                            Console.Write($"The {combat.rat1Name}swings it's knife!");
+                            Console.WriteLine($"You took {combat.rat1Dmg} DMG!");
+                            allStats.StatDisplay();
+
+                        }
+                        else
+                        {
+
+                            Console.WriteLine($"The {combat.rat1Name} Missed");
+                            allStats.StatDisplay();
+                        }
+                    }
+                    Console.WriteLine($"The {combat.rat1Name} has died!");
                 }
-            } while (fightStatus != 1);
 
-            //            for (int i = 0; i < 15; i++)
-            //{
+                var expGain = combat.HitRoll(40, 120);
+                Console.WriteLine($"you gained {expGain}EXP");
+                allStats.charEXP += expGain;
 
-            //    if (combat.rat1HP > 0)
-            //    {
-            //        Console.WriteLine($"{15 - i} Rounds left in combat.");
-            //        Console.WriteLine();
-            //        Thread.Sleep(800);
-            //        Console.Write("1 - Attack the ");
-            //        npcNames(ratName);
-            //        Console.WriteLine(" with your Sword");
+                allStats.StatDisplay();
+                fightStatus = 1;
+            } while (fightStatus != 1) ;
+            if (allStats.charEXP >= 100)
+            {
+                Console.WriteLine("You Leveled up!!!");
+                allStats.charLVL += 1;
+            }
 
-            //        Console.WriteLine();
 
-            //        Console.Write($"2 - Punch the ");
-            //        npcNames(ratName);
 
-            //        Console.WriteLine();
-            //        var ratCombat = int.Parse(Console.ReadLine());
-            //        switch (ratCombat)
-            //        {
-            //            case 1:
-
-            //                if (HitRoll(0, 100) < swordAcc)
-            //                {
-            //                    Thread.Sleep(800);
-            //                    ratHP = ratHP - swordDmg;
-            //                    Console.WriteLine($"You Hit!!");
-            //                    Console.WriteLine($"You dealt {swordDmg} DMG!!");
-            //                }
-            //                else
-            //                {
-            //                    Thread.Sleep(800);
-            //                    Console.WriteLine("You Missed!!");
-            //                }
-
-            //                break;
-            //            case 2:
-            //                if (HitRoll(0, 100) < punchAcc)
-            //                {
-            //                    Thread.Sleep(800);
-            //                    ratHP = ratHP - punchDmg;
-            //                    Console.WriteLine($"You Hit!!");
-            //                    Console.WriteLine($"You dealt {punchDmg} DMG!!");
-            //                }
-            //                break;
-            //            default:
-            //                Thread.Sleep(800);
-            //                Console.WriteLine("You passed this Turn.");
-            //                break;
-            //        }
-            //        if (ratHP > 0)
-            //        {
-            //            if (HitRoll(0, 100) < ratAcc)
-            //            {
-            //                Thread.Sleep(800);
-            //                HP = HP - ratDMG;
-            //                Console.Write("The ");
-            //                npcNames(ratName);
-            //                Console.Write(" swings it's knife!");
-            //                Thread.Sleep(800);
-            //                Console.WriteLine($"You took {ratDMG} DMG!");
-
-            //                DisplayStats(HP, MP);
-
-            //            }
-            //            else
-            //            {
-            //                Console.Write("The ");
-            //                npcNames(ratName);
-            //                Console.Write(" swings it's knife!");
-            //                Thread.Sleep(800);
-            //                Console.WriteLine("The Rat Missed");
-            //                DisplayStats(HP, MP);
-            //            }
-
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        Thread.Sleep(1000);
-            //        Console.WriteLine();
-            //        Console.Write("The ");
-            //        npcNames(ratName);
-            //        Console.Write(" has died!");
-            //        Thread.Sleep(1000);
-            //        Console.WriteLine();
-            //        Console.WriteLine($"{playerName} has gained 100 EXP");
-            //        EXP += 100;
-
-            //        i = 15;
-            //    }
-            //}//end of combat
-
-            //stop
-            Console.ReadLine();
-
-            
-
-            
-
-       
-
-            
+                //stop
+                Console.ReadLine();
 
 
 
 
-  
+
+
+
+
+
+
+
+
+
 
         }//end of main
-    }
-}
+    }//end of class
+}//end of namespace
+
