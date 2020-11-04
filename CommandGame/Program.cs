@@ -247,7 +247,19 @@ namespace CommandGame
                     Console.Write("   ");
                 }
             }
-            
+
+
+            Console.SetCursorPosition(54, 10);
+            Console.WriteLine("Stage 2");
+            Console.SetCursorPosition(45, 12);
+            Console.WriteLine("O-----X-----O-----O-----O");
+            Thread.Sleep(2000);
+            Console.SetCursorPosition(54, 10);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("  ");
+            }
+
 
 
             //stop
