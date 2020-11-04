@@ -66,7 +66,6 @@ namespace CommandGame
                 Console.Write("   ");
             }
 
-            //need to change cursor position below here and line erasure
             var fightStatus = 0;
             do
             {
@@ -78,41 +77,84 @@ namespace CommandGame
                     Console.WriteLine("2 - Punch");
                     Console.SetCursorPosition(50, 24);
                     var atkChoice = int.Parse(Console.ReadLine());
+                    Console.SetCursorPosition(48, 20);
+                    for (int i = 0; i < 200; i++)
+                    {
+                        Console.Write("   ");
+                    }
 
                     switch (atkChoice)
                     {
                         case 1:
-                            if (combat.HitRoll(0, 100) < allStats.swordAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.swordAcc)
                             {
                                 Thread.Sleep(800);
                                 combat.rat1HP = combat.rat1HP - allStats.swordDmg;
+                                Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
+                                Console.SetCursorPosition(50, 21);
                                 Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
                             }
                             else
                             {
                                 Thread.Sleep(800);
+                                Console.SetCursorPosition(50, 20);
                                 Console.WriteLine("You Missed!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
                             }
                             break;
 
                         case 2:
-                            if (combat.HitRoll(0, 100) < allStats.punchAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.punchAcc)
                             {
                                 Thread.Sleep(800);
                                 combat.rat1HP = combat.rat1HP - allStats.punchDmg;
+                                Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
+                                Console.SetCursorPosition(50, 21);
                                 Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
                             }
                             else
                             {
                                 Thread.Sleep(800);
+                                Console.SetCursorPosition(50, 20);
                                 Console.WriteLine("You Missed!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
                             }
                             break;
 
                         default:
+                            Thread.Sleep(800);
+                            Console.SetCursorPosition(50, 20);
                             Console.WriteLine("you looked funny at the rat and it just fuckin' died");
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(48, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
                             combat.rat1HP -= combat.rat1HP;
                             break;
                     }
@@ -120,42 +162,96 @@ namespace CommandGame
 
                     if (combat.rat1HP > 0)
                     {
-                        if (combat.HitRoll(0, 100) < combat.rat1Acc)
+                        if (Combat.HitRoll(0, 100) < combat.rat1Acc)
                         {
                             Thread.Sleep(800);
                             allStats.charHPCurrent -= combat.rat1Dmg;
-                            Console.Write($"The {combat.rat1Name}swings it's knife!");
+                            Console.SetCursorPosition(50, 20);
+                            Console.Write($"The {combat.rat1Name} swings it's knife!");
+                            Console.SetCursorPosition(50, 21);
                             Console.WriteLine($"You took {combat.rat1Dmg} DMG!");
                             allStats.StatDisplay();
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(48, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
+
 
                         }
                         else
                         {
-
+                            Console.SetCursorPosition(50, 20);
                             Console.WriteLine($"The {combat.rat1Name} Missed");
                             allStats.StatDisplay();
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(48, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
                         }
                     }
-                    Console.WriteLine($"The {combat.rat1Name} has died!");
+                  
+                   
+                    
                 }
 
-                var expGain = combat.HitRoll(40, 120);
-                Console.WriteLine($"you gained {expGain}EXP");
-                allStats.charEXP += expGain;
 
-                allStats.StatDisplay();
-                fightStatus = 1;
-            } while (fightStatus != 1) ;
-            if (allStats.charEXP >= 100)
+                if (combat.rat1HP <= 0)
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(50, 20);
+                    Console.WriteLine($"The {combat.rat1Name} has died!");
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(48, 2);
+                    for (int i = 0; i < 200; i++)
+                    {
+                        Console.Write("   ");
+                    }
+                    allStats.StatDisplay();
+                    fightStatus = 1;
+                }
+
+            } while (fightStatus != 1);
+
+            var expGain = Combat.HitRoll(50, 135);
+            Console.SetCursorPosition(50, 20);
+            Console.WriteLine($"you gained {expGain}EXP");
+            allStats.charEXP += expGain;
+            allStats.StatDisplay();
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(48, 20);
+            for (int i = 0; i < 200; i++)
             {
-                Console.WriteLine("You Leveled up!!!");
-                allStats.charLVL += 1;
+                Console.Write("   ");
             }
 
+            if (allStats.charEXP >= 100)
+            {
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 20);
+                Console.WriteLine("You Leveled up!!!");
+                allStats.charLVL += 1;
+                allStats.StatDisplay();
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 21);
+                Console.WriteLine($"You feel like you got stronger!");
+                allStats.swordDmg += 3;
+                allStats.swordAcc += 5;
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(48, 20);
+                for (int i = 0; i < 200; i++)
+                {
+                    Console.Write("   ");
+                }
+            }
+            
 
 
-                //stop
-                Console.ReadLine();
+            //stop
+            Console.ReadLine();
 
 
 
