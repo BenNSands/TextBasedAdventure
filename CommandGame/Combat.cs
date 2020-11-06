@@ -13,6 +13,10 @@ namespace CommandGame
         public int rat1Acc { get; set; }
         public string dragonName { get; set; }
         public string theTrader { get; set; }
+        public string rat2Name { get; set; }
+        public int rat2HP { get; set; }
+        public int rat2Dmg { get; set; }
+        public int rat2Acc { get; set; }
 
         public Combat(){
             rat1Name = "Rat";
@@ -21,6 +25,10 @@ namespace CommandGame
             rat1Acc = 70;
             dragonName = "The Almighty Srakoan";
             theTrader = "The Trader";
+            rat2Name = "Burly Rat";
+            rat2HP = 18;
+            rat2Dmg = 7;
+            rat2Acc = 60;
         }
         public static int HitRoll(int min, int max)
         {
