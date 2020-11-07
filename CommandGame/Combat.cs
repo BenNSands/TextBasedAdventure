@@ -69,7 +69,7 @@ namespace CommandGame
 
             theTrader = "The Trader";
 
-            dragonName = "The Almighty Srakoan";
+            dragonName = "The Almighty Dragon, Srakoan";
             dragonHP = 999999999;
             dragonDmg = 999;
             dragonAcc = 100;

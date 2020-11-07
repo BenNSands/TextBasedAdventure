@@ -910,17 +910,174 @@ namespace CommandGame
             {
                 Console.Write("  ");
             }
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(50, 10);
+            Console.WriteLine($"You have encountered {combat.dragonName}!!");
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(55, 12);
+            Console.WriteLine("Combat has Initiated!");
+
+            //do
+            //{
+            //    while (combat.rat4HP > 0)
+            //    {
+            //        Console.SetCursorPosition(50, 20);
+            //        Console.WriteLine("1 - Sword");
+            //        Console.SetCursorPosition(50, 22);
+            //        Console.WriteLine("2 - Punch");
+            //        Console.SetCursorPosition(50, 24);
+            //        var atkChoice = Console.ReadLine();
+            //        Console.SetCursorPosition(48, 20);
+            //        for (int i = 0; i < 200; i++)
+            //        {
+            //            Console.Write("   ");
+            //        }
+
+            //        switch (atkChoice.ToLower())
+            //        {
+            //            case "1":
+            //                if (Combat.HitRoll(0, 100) < allStats.SwordAcc)
+            //                {
+            //                    Thread.Sleep(800);
+            //                    combat.rat4HP = combat.rat4HP - allStats.SwordDmg;
+            //                    Console.SetCursorPosition(50, 20);
+            //                    Console.WriteLine($"You Hit!!");
+            //                    Console.SetCursorPosition(50, 21);
+            //                    Console.WriteLine($"You dealt {allStats.SwordDmg} DMG!!");
+            //                    Thread.Sleep(1000);
+            //                    Console.SetCursorPosition(48, 20);
+            //                    for (int i = 0; i < 200; i++)
+            //                    {
+            //                        Console.Write("   ");
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    Thread.Sleep(800);
+            //                    Console.SetCursorPosition(50, 20);
+            //                    Console.WriteLine("You Missed!!");
+            //                    Thread.Sleep(1000);
+            //                    Console.SetCursorPosition(48, 20);
+            //                    for (int i = 0; i < 200; i++)
+            //                    {
+            //                        Console.Write("   ");
+            //                    }
+            //                }
+            //                break;
+
+            //            case "2":
+            //                if (Combat.HitRoll(0, 100) < allStats.PunchAcc)
+            //                {
+            //                    Thread.Sleep(800);
+            //                    combat.rat4HP = combat.rat4HP - allStats.PunchDmg;
+            //                    Console.SetCursorPosition(50, 20);
+            //                    Console.WriteLine($"You Hit!!");
+            //                    Console.SetCursorPosition(50, 21);
+            //                    Console.WriteLine($"You dealt {allStats.PunchDmg} DMG!!");
+            //                    Thread.Sleep(1000);
+            //                    Console.SetCursorPosition(48, 20);
+            //                    for (int i = 0; i < 200; i++)
+            //                    {
+            //                        Console.Write("   ");
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    Thread.Sleep(800);
+            //                    Console.SetCursorPosition(50, 20);
+            //                    Console.WriteLine("You Missed!!");
+            //                    Thread.Sleep(1000);
+            //                    Console.SetCursorPosition(48, 20);
+            //                    for (int i = 0; i < 200; i++)
+            //                    {
+            //                        Console.Write("   ");
+            //                    }
+            //                }
+            //                break;
+
+            //            case "kill the rat":
+            //                Thread.Sleep(800);
+            //                Console.SetCursorPosition(50, 20);
+            //                Console.WriteLine("you looked funny at the rat and it just fuckin' died");
+            //                Thread.Sleep(1000);
+            //                Console.SetCursorPosition(48, 20);
+            //                for (int i = 0; i < 200; i++)
+            //                {
+            //                    Console.Write("   ");
+            //                }
+            //                combat.rat4HP -= combat.rat4HP;
+            //                break;
+            //            default:
+            //                Console.SetCursorPosition(50, 20);
+            //                Console.WriteLine("You wait a turn");
+            //                Thread.Sleep(1000);
+            //                Console.SetCursorPosition(50, 20);
+            //                for (int i = 0; i < 200; i++)
+            //                {
+            //                    Console.Write("   ");
+            //                }
+            //                break;
+            //        }
+
+
+            //        if (combat.rat4HP > 0)
+            //        {
+            //            if (Combat.HitRoll(0, 100) < combat.rat4Acc)
+            //            {
+            //                Thread.Sleep(800);
+            //                allStats.CharHPCurrent -= combat.rat4Dmg;
+            //                Console.SetCursorPosition(50, 20);
+            //                Console.Write($"{combat.rat4Name} punches you!");
+            //                Console.SetCursorPosition(50, 21);
+            //                Console.WriteLine($"You took {combat.rat4Dmg} DMG!");
+            //                allStats.StatDisplay();
+            //                Thread.Sleep(1000);
+            //                Console.SetCursorPosition(48, 20);
+            //                for (int i = 0; i < 200; i++)
+            //                {
+            //                    Console.Write("   ");
+            //                }
+
+
+            //            }
+            //            else
+            //            {
+            //                Console.SetCursorPosition(50, 20);
+            //                Console.WriteLine($"{combat.rat4Name} Missed");
+            //                allStats.StatDisplay();
+            //                Thread.Sleep(1000);
+            //                Console.SetCursorPosition(48, 20);
+            //                for (int i = 0; i < 200; i++)
+            //                {
+            //                    Console.Write("   ");
+            //                }
+            //            }
+            //        }
+
+            //    }
+
+
+            //    if (combat.rat4HP <= 0)
+            //    {
+            //        Thread.Sleep(1000);
+            //        Console.SetCursorPosition(50, 20);
+            //        Console.WriteLine($"{combat.rat4Name} has died!");
+            //        Thread.Sleep(1000);
+            //        Console.SetCursorPosition(48, 2);
+            //        for (int i = 0; i < 200; i++)
+            //        {
+            //            Console.Write("   ");
+            //        }
+            //        allStats.StatDisplay();
+            //        fightStatus = 4;
+            //    }
+
+            //} while (fightStatus != 4);
+
+
 
             //stop
             Console.ReadLine();
-
-
-
-
-
-
-
-
 
 
 
