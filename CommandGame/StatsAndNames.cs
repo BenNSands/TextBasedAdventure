@@ -69,5 +69,40 @@ namespace CommandGame
             Console.Write(name);
             Console.ResetColor();
         }
+
+
+        public void LvlUp(int exp, int lvl)
+        {
+            if (exp >= 100 && lvl == 1)
+            {
+
+                lvl += 1;
+                exp -= 100;
+            }
+
+            if (exp >= 150 && lvl == 2)
+            {
+                lvl += 1;
+                exp -= 150;
+            }
+
+            if (exp >= 200 && lvl == 3)
+            {
+                lvl += 1;
+                exp -= 200;
+            }
+
+            if (exp >= 300 && lvl == 4)
+            {
+                lvl += 1;
+                exp -= 300;
+            }
+
+            if (exp>= 500 && lvl == 5)
+            {
+                lvl += 1;
+                exp -= 500;
+            }
+        }
     }
 }
