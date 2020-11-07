@@ -874,12 +874,28 @@ namespace CommandGame
             Console.WriteLine($"Hello {allStats.PlayerName}...");
             Console.SetCursorPosition(50, 11);
             Console.WriteLine("You have done well to make it this far");
-            Console.SetCursorPosition(54, 10);
+            Console.SetCursorPosition(54, 12);
             Console.WriteLine("Take this and heal up");
             if (allStats.CharHPCurrent < allStats.CharHPFull)
             {
                 allStats.CharHPCurrent = allStats.CharHPFull;
             }
+            
+            Console.SetCursorPosition(54, 13);
+            Thread.Sleep(2000);
+            Console.WriteLine("and one piece of advise for you");
+            Thread.Sleep(1200);
+            Console.SetCursorPosition(54, 10);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("  ");
+            }
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(54, 10);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("DON'T FIGHT THE DRAGON");
+            Console.ResetColor();
+            Thread.Sleep(2000);
             //end of trader stage for now
 
             //start of dragon stage
