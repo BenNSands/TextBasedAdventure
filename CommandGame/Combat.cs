@@ -43,8 +43,8 @@ namespace CommandGame
 
         }
 
-        public static void FightStages(string ratName, int ratHP, int ratDmg, int ratAcc)
-        {
+       // public static void FightStages(string ratName, int ratHP, int ratDmg, int ratAcc)
+        //{
             //Console.SetCursorPosition(48, 12);
             //Console.WriteLine($"You've Encountered a {ratName}!");
             //Thread.Sleep(800);
@@ -256,7 +256,7 @@ namespace CommandGame
             //        Console.Write("   ");
             //    }
             //}
-        } //end of fight stages method
+        //} //end of fight stages method
 
 
 
