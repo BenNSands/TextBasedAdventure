@@ -10,33 +10,33 @@ namespace CommandGame
     class StatsAndNames
     {
 
-        public string playerName { get; set; }
+        public string PlayerName { get; set; }
         //playerStats
-        public int charHPCurrent { get; set; }
-        public int charHPFull { get; }
-        public int charMPCurrent { get; set; }
-        public int charMPFull { get; }
-        public int charEXP { get; set; }
-        public int charLVL { get; set; }
-        public string status { get; set; }
-        public int swordDmg { get; set; }
-        public int swordAcc { get; set; }
-        public int punchDmg { get; set; }
-        public int punchAcc { get; set; }
+        public int CharHPCurrent { get; set; }
+        public int CharHPFull { get; }
+        public int CharMPCurrent { get; set; }
+        public int CharMPFull { get; }
+        public int CharEXP { get; set; }
+        public int CharLVL { get; set; }
+        public string Status { get; set; }
+        public int SwordDmg { get; set; }
+        public int SwordAcc { get; set; }
+        public int PunchDmg { get; set; }
+        public int PunchAcc { get; set; }
        
         public StatsAndNames()
         {
-            charHPCurrent = 100;
-            charHPFull = 100;
-            charMPCurrent = 50;
-            charMPFull = 50;
-            charEXP = 0;
-            charLVL = 1;
-            swordDmg = 5;
-            swordAcc = 85;
-            punchDmg = 1;
-            punchAcc = 100;
-            status = "Healthy";
+            CharHPCurrent = 100;
+            CharHPFull = 100;
+            CharMPCurrent = 50;
+            CharMPFull = 50;
+            CharEXP = 0;
+            CharLVL = 1;
+            SwordDmg = 5;
+            SwordAcc = 85;
+            PunchDmg = 1;
+            PunchAcc = 100;
+            Status = "Healthy";
            
            
             
@@ -51,20 +51,20 @@ namespace CommandGame
         {
             Console.WriteLine();
             Console.SetCursorPosition(1, 2);
-            Console.Write($"Name: {playerName}");
+            Console.Write($"Name: {PlayerName}");
             Console.SetCursorPosition(20, 2);
-            Console.Write($"LVL: {charLVL}");
+            Console.Write($"LVL: {CharLVL}");
             Console.SetCursorPosition(40, 2);
-            Console.Write($"EXP: {charEXP}");
+            Console.Write($"EXP: {CharEXP}");
             Console.SetCursorPosition(60, 2);
-            Console.Write($"HP: {charHPCurrent}/{charHPFull}");
+            Console.Write($"HP: {CharHPCurrent}/{CharHPFull}");
             Console.SetCursorPosition(80, 2);
-            Console.Write($"MP: {charMPCurrent}/{charMPFull}");
+            Console.Write($"MP: {CharMPCurrent}/{CharMPFull}");
             Console.SetCursorPosition(100, 2);
-            Console.Write($"Status: {status}");
+            Console.Write($"Status: {Status}");
         }
 
-        public static void npcNames(string name)
+        public void npcNames(string name)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(name);
@@ -80,10 +80,10 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl += 1;
+                lvl ++;
 
                 Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
+                Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 100;
                 dmg += 3;
@@ -102,10 +102,10 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl += 1;
+                lvl ++;
 
                 Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
+                Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 150;
                 dmg += 6;
@@ -124,10 +124,10 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl += 1;
+                lvl ++;
 
                 Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
+                Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 200;
                 dmg += 7;
@@ -146,10 +146,10 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl += 1;
+                lvl ++;
 
                 Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
+                Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 300;
                 dmg += 10;
@@ -168,10 +168,10 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl += 1;
+                lvl ++;
 
                 Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
+                Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 500;
                 dmg += 20;
@@ -183,6 +183,6 @@ namespace CommandGame
                     Console.Write("   ");
                 }
             }
-        }
+        }//end of lvl up
     }
 }

@@ -20,7 +20,7 @@ namespace CommandGame
             Console.SetCursorPosition(45, 8);
             Console.WriteLine("Hello Slayer! What's your name?");
             Console.SetCursorPosition(7, 2);
-            allStats.playerName = Console.ReadLine();
+            allStats.PlayerName = Console.ReadLine();
             Thread.Sleep(1000);
             Console.SetCursorPosition(45, 8);
             for (int i = 0; i < 200; i++)
@@ -31,7 +31,7 @@ namespace CommandGame
             Console.WriteLine("Good, you remeber.");
             Thread.Sleep(1000);
             Console.SetCursorPosition(25, 10);
-            Console.WriteLine($"Here, you dropped your Sword {allStats.playerName}! Now get out there and take care of those Rats!");// want to change the dialouge here (need more instructions)
+            Console.WriteLine($"Here, you dropped your Sword {allStats.PlayerName}! Now get out there and take care of those Rats!");// want to change the dialouge here (need more instructions)
 
             allStats.StatDisplay();
 
@@ -87,14 +87,14 @@ namespace CommandGame
                     switch (atkChoice.ToLower())
                     {
                         case "1":
-                            if (Combat.HitRoll(0, 100) < allStats.swordAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.SwordAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat1HP = combat.rat1HP - allStats.swordDmg;
+                                combat.rat1HP = combat.rat1HP - allStats.SwordDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.SwordDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -117,14 +117,14 @@ namespace CommandGame
                             break;
 
                         case  "2":
-                            if (Combat.HitRoll(0, 100) < allStats.punchAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.PunchAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat1HP = combat.rat1HP - allStats.punchDmg;
+                                combat.rat1HP = combat.rat1HP - allStats.PunchDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.PunchDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -175,7 +175,7 @@ namespace CommandGame
                         if (Combat.HitRoll(0, 100) < combat.rat1Acc)
                         {
                             Thread.Sleep(800);
-                            allStats.charHPCurrent -= combat.rat1Dmg;
+                            allStats.CharHPCurrent -= combat.rat1Dmg;
                             Console.SetCursorPosition(50, 20);
                             Console.Write($"The {combat.rat1Name} scratches you!");
                             Console.SetCursorPosition(50, 21);
@@ -229,7 +229,7 @@ namespace CommandGame
             var expGain = Combat.HitRoll(60, 145);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain}EXP");
-            allStats.charEXP += expGain;
+            allStats.CharEXP += expGain;
             allStats.StatDisplay();
             Thread.Sleep(1000);
             Console.SetCursorPosition(48, 20);
@@ -239,7 +239,7 @@ namespace CommandGame
             }
             // lvl up check
 
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
+            allStats.LvlUp(allStats.CharEXP, allStats.CharLVL, allStats.SwordDmg, allStats.SwordAcc);
             allStats.StatDisplay();
 
 
@@ -292,14 +292,14 @@ namespace CommandGame
                     switch (atkChoice.ToLower())
                     {
                         case "1":
-                            if (Combat.HitRoll(0, 100) < allStats.swordAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.SwordAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat2HP = combat.rat2HP - allStats.swordDmg;
+                                combat.rat2HP = combat.rat2HP - allStats.SwordDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.SwordDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -322,14 +322,14 @@ namespace CommandGame
                             break;
 
                         case "2":
-                            if (Combat.HitRoll(0, 100) < allStats.punchAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.PunchAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat2HP = combat.rat2HP - allStats.punchDmg;
+                                combat.rat2HP = combat.rat2HP - allStats.PunchDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.PunchDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -383,7 +383,7 @@ namespace CommandGame
                         if (Combat.HitRoll(0, 100) < combat.rat2Acc)
                         {
                             Thread.Sleep(800);
-                            allStats.charHPCurrent -= combat.rat2Dmg;
+                            allStats.CharHPCurrent -= combat.rat2Dmg;
                             Console.SetCursorPosition(50, 20);
                             Console.Write($"The {combat.rat2Name} punches you!");
                             Console.SetCursorPosition(50, 21);
@@ -435,7 +435,7 @@ namespace CommandGame
             var expGain2 = Combat.HitRoll(130, 235);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain2}EXP");
-            allStats.charEXP += expGain2;
+            allStats.CharEXP += expGain2;
             allStats.StatDisplay();
             Thread.Sleep(1000);
             Console.SetCursorPosition(48, 20);
@@ -445,7 +445,7 @@ namespace CommandGame
             }
 
             //lvl up check
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
+            allStats.LvlUp(allStats.CharEXP, allStats.CharLVL, allStats.SwordDmg, allStats.SwordAcc);
             allStats.StatDisplay();
 
 
@@ -502,14 +502,14 @@ namespace CommandGame
                     switch (atkChoice.ToLower())
                     {
                         case "1":
-                            if (Combat.HitRoll(0, 100) < allStats.swordAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.SwordAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat3HP = combat.rat3HP - allStats.swordDmg;
+                                combat.rat3HP = combat.rat3HP - allStats.SwordDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.SwordDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -532,14 +532,14 @@ namespace CommandGame
                             break;
 
                         case "2":
-                            if (Combat.HitRoll(0, 100) < allStats.punchAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.PunchAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat3HP = combat.rat3HP - allStats.punchDmg;
+                                combat.rat3HP = combat.rat3HP - allStats.PunchDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.PunchDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -591,9 +591,9 @@ namespace CommandGame
                         if (Combat.HitRoll(0, 100) < combat.rat3Acc)
                         {
                             Thread.Sleep(800);
-                            allStats.charHPCurrent -= combat.rat3Dmg;
+                            allStats.CharHPCurrent -= combat.rat3Dmg;
                             Console.SetCursorPosition(50, 20);
-                            Console.Write($"The {combat.rat3Name} punches you!");
+                            Console.Write($"The {combat.rat3Name} swings with it's knife!");
                             Console.SetCursorPosition(50, 21);
                             Console.WriteLine($"You took {combat.rat3Dmg} DMG!");
                             allStats.StatDisplay();
@@ -629,7 +629,7 @@ namespace CommandGame
                     Console.SetCursorPosition(50, 20);
                     Console.WriteLine($"The {combat.rat3Name} has died!");
                     Thread.Sleep(1000);
-                    Console.SetCursorPosition(48, 2);
+                    Console.SetCursorPosition(50, 2);
                     for (int i = 0; i < 200; i++)
                     {
                         Console.Write("   ");
@@ -643,7 +643,7 @@ namespace CommandGame
             var expGain3 = Combat.HitRoll(175, 250);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain3}EXP");
-            allStats.charEXP += expGain3;
+            allStats.CharEXP += expGain3;
             allStats.StatDisplay();
             Thread.Sleep(1000);
             Console.SetCursorPosition(50, 20);
@@ -653,7 +653,7 @@ namespace CommandGame
             }
 
             //lvl up check
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
+            allStats.LvlUp(allStats.CharEXP, allStats.CharLVL, allStats.SwordDmg, allStats.SwordAcc);
             allStats.StatDisplay();
 
             //end of stage 3
@@ -703,14 +703,14 @@ namespace CommandGame
                     switch (atkChoice.ToLower())
                     {
                         case "1":
-                            if (Combat.HitRoll(0, 100) < allStats.swordAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.SwordAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat4HP = combat.rat4HP - allStats.swordDmg;
+                                combat.rat4HP = combat.rat4HP - allStats.SwordDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.SwordDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -733,14 +733,14 @@ namespace CommandGame
                             break;
 
                         case "2":
-                            if (Combat.HitRoll(0, 100) < allStats.punchAcc)
+                            if (Combat.HitRoll(0, 100) < allStats.PunchAcc)
                             {
                                 Thread.Sleep(800);
-                                combat.rat4HP = combat.rat4HP - allStats.punchDmg;
+                                combat.rat4HP = combat.rat4HP - allStats.PunchDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
-                                Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                                Console.WriteLine($"You dealt {allStats.PunchDmg} DMG!!");
                                 Thread.Sleep(1000);
                                 Console.SetCursorPosition(48, 20);
                                 for (int i = 0; i < 200; i++)
@@ -792,7 +792,7 @@ namespace CommandGame
                         if (Combat.HitRoll(0, 100) < combat.rat4Acc)
                         {
                             Thread.Sleep(800);
-                            allStats.charHPCurrent -= combat.rat4Dmg;
+                            allStats.CharHPCurrent -= combat.rat4Dmg;
                             Console.SetCursorPosition(50, 20);
                             Console.Write($"{combat.rat4Name} punches you!");
                             Console.SetCursorPosition(50, 21);
@@ -844,7 +844,7 @@ namespace CommandGame
             var expGain4 = Combat.HitRoll(290, 380);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain3}EXP");
-            allStats.charEXP += expGain3;
+            allStats.CharEXP += expGain3;
             allStats.StatDisplay();
             Thread.Sleep(1000);
             Console.SetCursorPosition(50, 20);
@@ -854,8 +854,46 @@ namespace CommandGame
             }
 
             //lvl up check
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
+            allStats.LvlUp(allStats.CharEXP, allStats.CharLVL, allStats.SwordDmg, allStats.SwordAcc);
             allStats.StatDisplay();
+
+            //end stage 4
+
+            //start trader stage
+            Console.SetCursorPosition(54, 10);
+            Console.WriteLine("The Trader");
+            Console.SetCursorPosition(45, 12);
+            Console.WriteLine("O-----O-----O-----O--T--O");
+            Thread.Sleep(2000);
+            Console.SetCursorPosition(54, 10);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("  ");
+            }
+            Console.SetCursorPosition(54, 10);
+            Console.WriteLine($"Hello {allStats.PlayerName}...");
+            Console.SetCursorPosition(50, 11);
+            Console.WriteLine("You have done well to make it this far");
+            Console.SetCursorPosition(54, 10);
+            Console.WriteLine("Take this and heal up");
+            if (allStats.CharHPCurrent < allStats.CharHPFull)
+            {
+                allStats.CharHPCurrent = allStats.CharHPFull;
+            }
+            //end of trader stage for now
+
+            //start of dragon stage
+
+            Console.SetCursorPosition(54, 10);
+            Console.WriteLine("Final Stage");
+            Console.SetCursorPosition(45, 12);
+            Console.WriteLine("O-----O-----O-----O-----X");
+            Thread.Sleep(2000);
+            Console.SetCursorPosition(54, 10);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("  ");
+            }
 
             //stop
             Console.ReadLine();
