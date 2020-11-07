@@ -229,25 +229,27 @@ namespace CommandGame
                 Console.Write("   ");
             }
             //exp gain and lvl up
-            if (allStats.charEXP >= 100 || allStats.charLVL == 1)
-            {
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 20);
-                Console.WriteLine("You Leveled up!!!");
-                allStats.charLVL += 1;
-                allStats.StatDisplay();
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
-                Console.WriteLine($"You feel like you got stronger!");
-                allStats.swordDmg += 3;
-                allStats.swordAcc += 5;
-                Thread.Sleep(1000);
-                Console.SetCursorPosition(48, 20);
-                for (int i = 0; i < 200; i++)
-                {
-                    Console.Write("   ");
-                }
-            }
+
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL);
+            //if (allStats.charEXP >= 100 || allStats.charLVL == 1)
+            //{
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 20);
+            //    Console.WriteLine("You Leveled up!!!");
+            //    allStats.charLVL += 1;
+            //    allStats.StatDisplay();
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 21);
+            //    Console.WriteLine($"You feel like you got stronger!");
+            //    allStats.swordDmg += 3;
+            //    allStats.swordAcc += 5;
+            //    Thread.Sleep(1000);
+            //    Console.SetCursorPosition(48, 20);
+            //    for (int i = 0; i < 200; i++)
+            //    {
+            //        Console.Write("   ");
+            //    }
+            //}
             //start stage 2
             Console.SetCursorPosition(54, 10);
             Console.WriteLine("Stage 2");
@@ -433,46 +435,47 @@ namespace CommandGame
             {
                 Console.Write("   ");
             }
-            //check if still lvl 1
-            if (allStats.charEXP >= 100 || allStats.charLVL == 1)
-            {
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 20);
-                Console.WriteLine("You Leveled up!!!");
-                allStats.charLVL += 1;
-                allStats.StatDisplay();
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
-                Console.WriteLine($"You feel like you got stronger!");
-                allStats.swordDmg += 3;
-                allStats.swordAcc += 5;
-                Thread.Sleep(1000);
-                Console.SetCursorPosition(48, 20);
-                for (int i = 0; i < 200; i++)
-                {
-                    Console.Write("   ");
-                }
-            }
-            //exp gain and lvl up
-            if (allStats.charEXP >= 300)
-            {
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 20);
-                Console.WriteLine("You Leveled up!!!");
-                allStats.charLVL += 1;
-                allStats.StatDisplay();
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
-                Console.WriteLine($"You feel like you got stronger!");
-                allStats.swordDmg += 4;
-                allStats.swordAcc += 5;
-                Thread.Sleep(1000);
-                Console.SetCursorPosition(48, 20);
-                for (int i = 0; i < 200; i++)
-                {
-                    Console.Write("   ");
-                }
-            }
+            ////check if still lvl 1
+            //if (allStats.charEXP >= 100 || allStats.charLVL == 1)
+            //{
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 20);
+            //    Console.WriteLine("You Leveled up!!!");
+            //    allStats.charLVL += 1;
+            //    allStats.StatDisplay();
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 21);
+            //    Console.WriteLine($"You feel like you got stronger!");
+            //    allStats.swordDmg += 3;
+            //    allStats.swordAcc += 5;
+            //    Thread.Sleep(1000);
+            //    Console.SetCursorPosition(48, 20);
+            //    for (int i = 0; i < 200; i++)
+            //    {
+            //        Console.Write("   ");
+            //    }
+            //}
+            ////exp gain and lvl up
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL);
+            //if (allStats.charEXP >= 300)
+            //{
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 20);
+            //    Console.WriteLine("You Leveled up!!!");
+            //    allStats.charLVL += 1;
+            //    allStats.StatDisplay();
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 21);
+            //    Console.WriteLine($"You feel like you got stronger!");
+            //    allStats.swordDmg += 4;
+            //    allStats.swordAcc += 5;
+            //    Thread.Sleep(1000);
+            //    Console.SetCursorPosition(48, 20);
+            //    for (int i = 0; i < 200; i++)
+            //    {
+            //        Console.Write("   ");
+            //    }
+            //}
 
 
 
@@ -684,25 +687,26 @@ namespace CommandGame
                 }
             }
             //exp gain and lvl up
-            if (allStats.charEXP >= 300)
-            {
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 20);
-                Console.WriteLine("You Leveled up!!!");
-                allStats.charLVL += 1;
-                allStats.StatDisplay();
-                Thread.Sleep(800);
-                Console.SetCursorPosition(50, 21);
-                Console.WriteLine($"You feel like you got stronger!");
-                allStats.swordDmg += 4;
-                allStats.swordAcc += 5;
-                Thread.Sleep(1000);
-                Console.SetCursorPosition(48, 20);
-                for (int i = 0; i < 200; i++)
-                {
-                    Console.Write("   ");
-                }
-            }
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL);
+            //if (allStats.charEXP >= 300)
+            //{
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 20);
+            //    Console.WriteLine("You Leveled up!!!");
+            //    allStats.charLVL += 1;
+            //    allStats.StatDisplay();
+            //    Thread.Sleep(800);
+            //    Console.SetCursorPosition(50, 21);
+            //    Console.WriteLine($"You feel like you got stronger!");
+            //    allStats.swordDmg += 4;
+            //    allStats.swordAcc += 5;
+            //    Thread.Sleep(1000);
+            //    Console.SetCursorPosition(48, 20);
+            //    for (int i = 0; i < 200; i++)
+            //    {
+            //        Console.Write("   ");
+            //    }
+            //}
             //end of stage 3
 
 

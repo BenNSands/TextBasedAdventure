@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Principal;
 using System.Text;
+using System.Threading;
 
 namespace CommandGame
 {
@@ -75,33 +76,102 @@ namespace CommandGame
         {
             if (exp >= 100 && lvl == 1)
             {
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 20);
+                Console.WriteLine("You Leveled up!!!");
 
                 lvl += 1;
+
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 21);
+                Console.WriteLine($"You feel like you got stronger!");
                 exp -= 100;
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(50, 20);
+                for (int i = 0; i < 200; i++)
+                {
+                    Console.Write("   ");
+                }
             }
 
             if (exp >= 150 && lvl == 2)
             {
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 20);
+                Console.WriteLine("You Leveled up!!!");
+
                 lvl += 1;
+
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 21);
+                Console.WriteLine($"You feel like you got stronger!");
                 exp -= 150;
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(50, 20);
+                for (int i = 0; i < 200; i++)
+                {
+                    Console.Write("   ");
+                }
             }
 
             if (exp >= 200 && lvl == 3)
             {
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 20);
+                Console.WriteLine("You Leveled up!!!");
+
                 lvl += 1;
+
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 21);
+                Console.WriteLine($"You feel like you got stronger!");
                 exp -= 200;
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(50, 20);
+                for (int i = 0; i < 200; i++)
+                {
+                    Console.Write("   ");
+                }
             }
 
             if (exp >= 300 && lvl == 4)
             {
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 20);
+                Console.WriteLine("You Leveled up!!!");
+
                 lvl += 1;
+
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 21);
+                Console.WriteLine($"You feel like you got stronger!");
                 exp -= 300;
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(50, 20);
+                for (int i = 0; i < 200; i++)
+                {
+                    Console.Write("   ");
+                }
             }
 
             if (exp>= 500 && lvl == 5)
             {
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 20);
+                Console.WriteLine("You Leveled up!!!");
+
                 lvl += 1;
+
+                Thread.Sleep(800);
+                Console.SetCursorPosition(50, 21);
+                Console.WriteLine($"You feel like you got stronger!");
                 exp -= 500;
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(50, 20);
+                for (int i = 0; i < 200; i++)
+                {
+                    Console.Write("   ");
+                }
             }
         }
     }
