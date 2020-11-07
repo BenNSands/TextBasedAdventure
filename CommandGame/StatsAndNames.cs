@@ -72,7 +72,7 @@ namespace CommandGame
         }
 
 
-        public void LvlUp(int exp, int lvl)
+        public void LvlUp(int exp, int lvl, int dmg, int acc)
         {
             if (exp >= 100 && lvl == 1)
             {
@@ -86,6 +86,8 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 100;
+                dmg += 3;
+                acc += 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -106,6 +108,8 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 150;
+                dmg += 6;
+                acc += 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -126,6 +130,8 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 200;
+                dmg += 7;
+                acc += 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -146,6 +152,8 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 300;
+                dmg += 10;
+                acc += 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -166,6 +174,8 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 21);
                 Console.WriteLine($"You feel like you got stronger!");
                 exp -= 500;
+                dmg += 20;
+                acc += 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)

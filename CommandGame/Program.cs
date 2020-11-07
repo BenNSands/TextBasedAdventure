@@ -77,16 +77,16 @@ namespace CommandGame
                     Console.SetCursorPosition(50, 22);
                     Console.WriteLine("2 - Punch");
                     Console.SetCursorPosition(50, 24);
-                    var atkChoice = int.Parse(Console.ReadLine());
+                    var atkChoice = Console.ReadLine();
                     Console.SetCursorPosition(48, 20);
                     for (int i = 0; i < 200; i++)
                     {
                         Console.Write("   ");
                     }
 
-                    switch (atkChoice)
+                    switch (atkChoice.ToLower())
                     {
-                        case 1:
+                        case "1":
                             if (Combat.HitRoll(0, 100) < allStats.swordAcc)
                             {
                                 Thread.Sleep(800);
@@ -116,7 +116,7 @@ namespace CommandGame
                             }
                             break;
 
-                        case 2:
+                        case  "2":
                             if (Combat.HitRoll(0, 100) < allStats.punchAcc)
                             {
                                 Thread.Sleep(800);
@@ -145,8 +145,7 @@ namespace CommandGame
                                 }
                             }
                             break;
-
-                        default:
+                        case "kill the rat":
                             Thread.Sleep(800);
                             Console.SetCursorPosition(50, 20);
                             Console.WriteLine("you looked funny at the rat and it just fuckin' died");
@@ -157,6 +156,16 @@ namespace CommandGame
                                 Console.Write("   ");
                             }
                             combat.rat1HP -= combat.rat1HP;
+                            break;
+                        default:
+                            Console.SetCursorPosition(50, 20);
+                            Console.WriteLine("You wait a turn");
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(50, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
                             break;
                     }
 
@@ -216,7 +225,7 @@ namespace CommandGame
                 }
 
             } while (fightStatus != 1);
-
+            //exp gain
             var expGain = Combat.HitRoll(60, 145);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain}EXP");
@@ -228,9 +237,9 @@ namespace CommandGame
             {
                 Console.Write("   ");
             }
-            //exp gain and lvl up
+            // lvl up check
 
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL);
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
             allStats.StatDisplay();
 
 
@@ -273,16 +282,16 @@ namespace CommandGame
                     Console.SetCursorPosition(50, 22);
                     Console.WriteLine("2 - Punch");
                     Console.SetCursorPosition(50, 24);
-                    var atkChoice = int.Parse(Console.ReadLine());
+                    var atkChoice = Console.ReadLine();
                     Console.SetCursorPosition(48, 20);
                     for (int i = 0; i < 200; i++)
                     {
                         Console.Write("   ");
                     }
 
-                    switch (atkChoice)
+                    switch (atkChoice.ToLower())
                     {
-                        case 1:
+                        case "1":
                             if (Combat.HitRoll(0, 100) < allStats.swordAcc)
                             {
                                 Thread.Sleep(800);
@@ -312,7 +321,7 @@ namespace CommandGame
                             }
                             break;
 
-                        case 2:
+                        case "2":
                             if (Combat.HitRoll(0, 100) < allStats.punchAcc)
                             {
                                 Thread.Sleep(800);
@@ -342,7 +351,7 @@ namespace CommandGame
                             }
                             break;
 
-                        default:
+                        case "kill the rat":
                             Thread.Sleep(800);
                             Console.SetCursorPosition(50, 20);
                             Console.WriteLine("you looked funny at the rat and it just fuckin' died");
@@ -354,6 +363,18 @@ namespace CommandGame
                             }
                             combat.rat2HP -= combat.rat2HP;
                             break;
+                           
+                        default:
+                            Console.SetCursorPosition(50, 20);
+                            Console.WriteLine("You wait a turn");
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(50, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
+                            break;
+
                     }
 
 
@@ -410,7 +431,7 @@ namespace CommandGame
                 }
 
             } while (fightStatus != 2);
-
+            //exp gain
             var expGain2 = Combat.HitRoll(130, 235);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain2}EXP");
@@ -423,8 +444,8 @@ namespace CommandGame
                 Console.Write("   ");
             }
 
-            ////exp gain and lvl up
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL);
+            //lvl up check
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
             allStats.StatDisplay();
 
 
@@ -450,7 +471,7 @@ namespace CommandGame
 
 
             Console.SetCursorPosition(48, 12);
-            Console.WriteLine($"You've Encountered a {ratName}!");
+            Console.WriteLine($"You've Encountered a {combat.rat3Name}!");
             Thread.Sleep(800);
             Console.SetCursorPosition(51, 15);
             Console.WriteLine("Combat Has Initiated!");
@@ -464,27 +485,27 @@ namespace CommandGame
 
             do
             {
-                while (ratHP > 0)
+                while (combat.rat3HP > 0)
                 {
                     Console.SetCursorPosition(50, 20);
                     Console.WriteLine("1 - Sword");
                     Console.SetCursorPosition(50, 22);
                     Console.WriteLine("2 - Punch");
                     Console.SetCursorPosition(50, 24);
-                    var atkChoice = int.Parse(Console.ReadLine());
+                    var atkChoice = Console.ReadLine();
                     Console.SetCursorPosition(48, 20);
                     for (int i = 0; i < 200; i++)
                     {
                         Console.Write("   ");
                     }
 
-                    switch (atkChoice)
+                    switch (atkChoice.ToLower())
                     {
-                        case 1:
+                        case "1":
                             if (Combat.HitRoll(0, 100) < allStats.swordAcc)
                             {
                                 Thread.Sleep(800);
-                                ratHP = ratHP - allStats.swordDmg;
+                                combat.rat3HP = combat.rat3HP - allStats.swordDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
@@ -510,11 +531,11 @@ namespace CommandGame
                             }
                             break;
 
-                        case 2:
+                        case "2":
                             if (Combat.HitRoll(0, 100) < allStats.punchAcc)
                             {
                                 Thread.Sleep(800);
-                                ratHP = ratHP - allStats.punchDmg;
+                                combat.rat3HP = combat.rat3HP - allStats.punchDmg;
                                 Console.SetCursorPosition(50, 20);
                                 Console.WriteLine($"You Hit!!");
                                 Console.SetCursorPosition(50, 21);
@@ -540,7 +561,7 @@ namespace CommandGame
                             }
                             break;
 
-                        default://change these later into a case of kill the rat ReadLine
+                        case "kill the rat":
                             Thread.Sleep(800);
                             Console.SetCursorPosition(50, 20);
                             Console.WriteLine("you looked funny at the rat and it just fuckin' died");
@@ -550,21 +571,31 @@ namespace CommandGame
                             {
                                 Console.Write("   ");
                             }
-                            ratHP -= ratHP;
+                            combat.rat3HP -= combat.rat3HP;
+                            break;
+                        default:
+                            Console.SetCursorPosition(50, 20);
+                            Console.WriteLine("You wait a turn");
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(50, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
                             break;
                     }
 
 
-                    if (ratHP > 0)
+                    if (combat.rat3HP > 0)
                     {
-                        if (Combat.HitRoll(0, 100) < ratAcc)
+                        if (Combat.HitRoll(0, 100) < combat.rat3Acc)
                         {
                             Thread.Sleep(800);
-                            allStats.charHPCurrent -= ratDmg;
+                            allStats.charHPCurrent -= combat.rat3Dmg;
                             Console.SetCursorPosition(50, 20);
-                            Console.Write($"The {ratName} punches you!");
+                            Console.Write($"The {combat.rat3Name} punches you!");
                             Console.SetCursorPosition(50, 21);
-                            Console.WriteLine($"You took {ratDmg} DMG!");
+                            Console.WriteLine($"You took {combat.rat3Dmg} DMG!");
                             allStats.StatDisplay();
                             Thread.Sleep(1000);
                             Console.SetCursorPosition(48, 20);
@@ -578,7 +609,7 @@ namespace CommandGame
                         else
                         {
                             Console.SetCursorPosition(50, 20);
-                            Console.WriteLine($"The {ratName} Missed");
+                            Console.WriteLine($"The {combat.rat3Name} Missed");
                             allStats.StatDisplay();
                             Thread.Sleep(1000);
                             Console.SetCursorPosition(48, 20);
@@ -592,11 +623,11 @@ namespace CommandGame
                 }
 
 
-                if (ratHP <= 0)
+                if (combat.rat3HP <= 0)
                 {
                     Thread.Sleep(1000);
                     Console.SetCursorPosition(50, 20);
-                    Console.WriteLine($"The {ratName} has died!");
+                    Console.WriteLine($"The {combat.rat3Name} has died!");
                     Thread.Sleep(1000);
                     Console.SetCursorPosition(48, 2);
                     for (int i = 0; i < 200; i++)
@@ -608,7 +639,7 @@ namespace CommandGame
                 }
 
             } while (fightStatus != 3);
-
+            //exp gain
             var expGain3 = Combat.HitRoll(175, 250);
             Console.SetCursorPosition(50, 20);
             Console.WriteLine($"you gained {expGain3}EXP");
@@ -621,12 +652,210 @@ namespace CommandGame
                 Console.Write("   ");
             }
 
-            //exp gain and lvl up
-            allStats.LvlUp(allStats.charEXP, allStats.charLVL);
+            //lvl up check
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
             allStats.StatDisplay();
 
             //end of stage 3
 
+            //start stage 4
+            Console.SetCursorPosition(54, 10);
+            Console.WriteLine("Stage 4");
+            Console.SetCursorPosition(45, 12);
+            Console.WriteLine("O-----O-----O-----X-----O");
+            Thread.Sleep(2000);
+            Console.SetCursorPosition(54, 10);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("  ");
+            }
+
+
+            Console.SetCursorPosition(48, 12);
+            Console.WriteLine($"You've Encountered {combat.rat4Name}!");
+            Thread.Sleep(800);
+            Console.SetCursorPosition(51, 15);
+            Console.WriteLine("Combat Has Initiated!");
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(48, 12);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("   ");
+            }
+
+
+            do
+            {
+                while (combat.rat4HP > 0)
+                {
+                    Console.SetCursorPosition(50, 20);
+                    Console.WriteLine("1 - Sword");
+                    Console.SetCursorPosition(50, 22);
+                    Console.WriteLine("2 - Punch");
+                    Console.SetCursorPosition(50, 24);
+                    var atkChoice = Console.ReadLine();
+                    Console.SetCursorPosition(48, 20);
+                    for (int i = 0; i < 200; i++)
+                    {
+                        Console.Write("   ");
+                    }
+
+                    switch (atkChoice.ToLower())
+                    {
+                        case "1":
+                            if (Combat.HitRoll(0, 100) < allStats.swordAcc)
+                            {
+                                Thread.Sleep(800);
+                                combat.rat4HP = combat.rat4HP - allStats.swordDmg;
+                                Console.SetCursorPosition(50, 20);
+                                Console.WriteLine($"You Hit!!");
+                                Console.SetCursorPosition(50, 21);
+                                Console.WriteLine($"You dealt {allStats.swordDmg} DMG!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
+                            }
+                            else
+                            {
+                                Thread.Sleep(800);
+                                Console.SetCursorPosition(50, 20);
+                                Console.WriteLine("You Missed!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
+                            }
+                            break;
+
+                        case "2":
+                            if (Combat.HitRoll(0, 100) < allStats.punchAcc)
+                            {
+                                Thread.Sleep(800);
+                                combat.rat4HP = combat.rat4HP - allStats.punchDmg;
+                                Console.SetCursorPosition(50, 20);
+                                Console.WriteLine($"You Hit!!");
+                                Console.SetCursorPosition(50, 21);
+                                Console.WriteLine($"You dealt {allStats.punchDmg} DMG!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
+                            }
+                            else
+                            {
+                                Thread.Sleep(800);
+                                Console.SetCursorPosition(50, 20);
+                                Console.WriteLine("You Missed!!");
+                                Thread.Sleep(1000);
+                                Console.SetCursorPosition(48, 20);
+                                for (int i = 0; i < 200; i++)
+                                {
+                                    Console.Write("   ");
+                                }
+                            }
+                            break;
+
+                        case "kill the rat":
+                            Thread.Sleep(800);
+                            Console.SetCursorPosition(50, 20);
+                            Console.WriteLine("you looked funny at the rat and it just fuckin' died");
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(48, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
+                            combat.rat4HP -= combat.rat4HP;
+                            break;
+                        default:
+                            Console.SetCursorPosition(50, 20);
+                            Console.WriteLine("You wait a turn");
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(50, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
+                            break;
+                    }
+
+
+                    if (combat.rat4HP > 0)
+                    {
+                        if (Combat.HitRoll(0, 100) < combat.rat4Acc)
+                        {
+                            Thread.Sleep(800);
+                            allStats.charHPCurrent -= combat.rat4Dmg;
+                            Console.SetCursorPosition(50, 20);
+                            Console.Write($"{combat.rat4Name} punches you!");
+                            Console.SetCursorPosition(50, 21);
+                            Console.WriteLine($"You took {combat.rat4Dmg} DMG!");
+                            allStats.StatDisplay();
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(48, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
+
+
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(50, 20);
+                            Console.WriteLine($"{combat.rat4Name} Missed");
+                            allStats.StatDisplay();
+                            Thread.Sleep(1000);
+                            Console.SetCursorPosition(48, 20);
+                            for (int i = 0; i < 200; i++)
+                            {
+                                Console.Write("   ");
+                            }
+                        }
+                    }
+
+                }
+
+
+                if (combat.rat4HP <= 0)
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(50, 20);
+                    Console.WriteLine($"{combat.rat4Name} has died!");
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(48, 2);
+                    for (int i = 0; i < 200; i++)
+                    {
+                        Console.Write("   ");
+                    }
+                    allStats.StatDisplay();
+                    fightStatus = 4;
+                }
+
+            } while (fightStatus != 4);
+            //exp gain
+            var expGain4 = Combat.HitRoll(290, 380);
+            Console.SetCursorPosition(50, 20);
+            Console.WriteLine($"you gained {expGain3}EXP");
+            allStats.charEXP += expGain3;
+            allStats.StatDisplay();
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(50, 20);
+            for (int i = 0; i < 200; i++)
+            {
+                Console.Write("   ");
+            }
+
+            //lvl up check
+            allStats.LvlUp(allStats.charEXP, allStats.charLVL, allStats.swordDmg, allStats.swordAcc);
+            allStats.StatDisplay();
 
             //stop
             Console.ReadLine();
