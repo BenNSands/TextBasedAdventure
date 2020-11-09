@@ -27,5 +27,25 @@ namespace CommandGame
             Console.SetCursorPosition(45, 14);
             Console.WriteLine("                    ");
         }
+        public void EndScreen()
+        {
+            Console.SetCursorPosition(50, 7);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("You Win!!!");
+            Console.ResetColor();
+
+
+            Console.SetCursorPosition(45, 14);
+
+            Console.WriteLine("press ENTER to Exit");
+            Console.ReadLine();
+
+            Console.SetCursorPosition(50, 7);
+            Console.WriteLine("                    ");
+
+
+            Console.SetCursorPosition(45, 14);
+            Console.WriteLine("                         ");
+        }
     }
 }
