@@ -17,7 +17,7 @@ namespace CommandGame
         public int CharMPCurrent { get; set; }
         public int CharMPFull { get; }
         public int CharEXP { get; set; }
-        public int CharLVL { get; set; }
+        public int CharLVL { get; set; } 
         public string Status { get; set; }
         public int SwordDmg { get; set; }
         public int SwordAcc { get; set; }
@@ -49,6 +49,12 @@ namespace CommandGame
 
         public void StatDisplay()
         {
+
+            Console.SetCursorPosition(1, 2);
+            for (int i = 0; i < 100; i++)
+            {
+                Console.Write(" ");
+            }
             Console.WriteLine();
             Console.SetCursorPosition(1, 2);
             Console.Write($"Name: {PlayerName}");
@@ -76,18 +82,19 @@ namespace CommandGame
         {
             if (exp >= 100 && lvl == 1)
             {
+                
                 Thread.Sleep(800);
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl ++;
+                CharLVL = ++lvl;
 
                 Thread.Sleep(800);
                 Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
-                exp -= 100;
-                dmg += 3;
-                acc += 5;
+                CharEXP = exp - 100;
+                SwordDmg = dmg + 3;
+                SwordAcc = acc + 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -102,14 +109,14 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl ++;
+                CharLVL = ++lvl;
 
                 Thread.Sleep(800);
                 Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
-                exp -= 150;
-                dmg += 6;
-                acc += 5;
+                CharEXP = exp - 150;
+                SwordDmg = dmg + 6;
+                SwordAcc = acc + 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -124,14 +131,14 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl ++;
+                CharLVL = ++lvl;
 
                 Thread.Sleep(800);
                 Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
-                exp -= 200;
-                dmg += 7;
-                acc += 5;
+                CharEXP = exp - 200;
+                SwordDmg = dmg + 7;
+                SwordDmg = acc + 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -146,14 +153,14 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl ++;
+                CharLVL = ++lvl;
 
                 Thread.Sleep(800);
                 Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
-                exp -= 300;
-                dmg += 10;
-                acc += 5;
+                CharEXP = exp - 300;
+                SwordDmg = dmg + 10;
+                SwordAcc = acc + 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)
@@ -168,14 +175,14 @@ namespace CommandGame
                 Console.SetCursorPosition(50, 20);
                 Console.WriteLine("You Leveled up!!!");
 
-                lvl ++;
+                CharLVL = ++lvl;
 
                 Thread.Sleep(800);
                 Console.SetCursorPosition(45, 21);
                 Console.WriteLine($"You feel like you got stronger!");
-                exp -= 500;
-                dmg += 20;
-                acc += 5;
+                CharEXP = exp - 500;
+                SwordDmg = dmg + 20;
+                SwordAcc = acc + 5;
                 Thread.Sleep(1000);
                 Console.SetCursorPosition(50, 20);
                 for (int i = 0; i < 200; i++)

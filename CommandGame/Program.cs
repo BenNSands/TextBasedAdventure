@@ -1107,12 +1107,6 @@ namespace CommandGame
                 Console.ResetColor();
                 Console.ReadLine();
             }
-            
-
-
-
-
-
 
 
         }//end of main
