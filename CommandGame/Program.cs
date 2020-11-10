@@ -923,7 +923,7 @@ namespace CommandGame
                 Console.Write("  ");
             }
             Thread.Sleep(1000);
-            Console.SetCursorPosition(50, 10);
+            Console.SetCursorPosition(40, 10);
             Console.WriteLine($"You have encountered {combat.DragonName}!!");
             Thread.Sleep(1000);
             Console.SetCursorPosition(55, 12);
@@ -1075,7 +1075,7 @@ namespace CommandGame
                     }
 
 
-                } while ((combat.DragonHP > 0 && allStats.CharHPCurrent > 0) && dragonRage == 10);
+                } while (combat.DragonHP > 0 && allStats.CharHPCurrent > 0 && dragonRage == 10);
                 Console.SetCursorPosition(40,15);
                 Thread.Sleep(1000);
                 Console.WriteLine($"So I see you are cabable of thought... so your name is {allStats.PlayerName}");

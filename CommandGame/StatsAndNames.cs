@@ -80,7 +80,7 @@ namespace CommandGame
 
         public void LvlUp(int exp, int lvl, int dmg, int acc)
         {
-            if (exp >= 100 && lvl == 1)
+            if (CharEXP >= 100 && CharLVL == 1)
             {
                 
                 Thread.Sleep(800);
@@ -103,7 +103,7 @@ namespace CommandGame
                 }
             }
 
-            if (exp >= 150 && lvl == 2)
+            if (CharEXP >= 150 && CharLVL == 2)
             {
                 Thread.Sleep(800);
                 Console.SetCursorPosition(50, 20);
@@ -125,7 +125,7 @@ namespace CommandGame
                 }
             }
 
-            if (exp >= 200 && lvl == 3)
+            if (CharEXP >= 200 && CharLVL == 3)
             {
                 Thread.Sleep(800);
                 Console.SetCursorPosition(50, 20);
@@ -147,7 +147,7 @@ namespace CommandGame
                 }
             }
 
-            if (exp >= 300 && lvl == 4)
+            if (CharEXP >= 300 && CharLVL == 4)
             {
                 Thread.Sleep(800);
                 Console.SetCursorPosition(50, 20);
@@ -169,7 +169,7 @@ namespace CommandGame
                 }
             }
 
-            if (exp>= 500 && lvl == 5)
+            if (CharEXP>= 500 && CharLVL == 5)
             {
                 Thread.Sleep(800);
                 Console.SetCursorPosition(50, 20);
